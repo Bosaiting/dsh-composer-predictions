@@ -1,0 +1,16 @@
+node_modules/
+*.tgz
+*.zip
+*.tar.gz
+.DS_Store
+.env
+.env.*
+!.env.example
+.npmrc
+playwright-report/
+test-results/
+coverage/
+dist/
+*.log
+*.bak
+backups/

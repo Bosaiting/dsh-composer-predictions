@@ -1,0 +1,97 @@
+{
+  "name": "dsh-composer-predictions",
+  "version": "0.4.3",
+  "description": "Next-message suggestions for the DeepSeek Harness composer, accepted with Tab.",
+  "type": "module",
+  "main": "host.js",
+  "exports": {
+    ".": "./host.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "host.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "README.en.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "docs/",
+    "scripts/check-package.mjs"
+  ],
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-chat",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-settings-general",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.5"
+  },
+  "scripts": {
+    "test": "npm run test:unit && npm run test:browser && npm run test:performance && npm run test:compatibility",
+    "pack": "npm pack",
+    "test:unit": "node test-host.mjs && node test-prompt.mjs && node test-generate.mjs && node test-prefix.mjs && node test-cold.mjs && node test-route.mjs && node test-route-http.mjs && node test-client.mjs && node test-settings.mjs && node test-cache.mjs && node test-regressions.mjs",
+    "test:browser": "node test-browser.mjs",
+    "test:syntax": "node --check host.js && node --check client.js",
+    "check": "npm run test:syntax && npm test && npm run check:release && npm run test:package",
+    "prepack": "node scripts/check-package.mjs",
+    "test:performance": "node test-performance.mjs",
+    "prepublishOnly": "npm run check",
+    "check:release": "node scripts/check-release.mjs",
+    "test:package": "node test-package.mjs",
+    "preview": "node scripts/capture-preview.mjs",
+    "test:compatibility": "node test-compatibility.mjs"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "composer",
+    "prediction",
+    "ghost-text",
+    "dsh-plugin"
+  ],
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "playwright": "1.62.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Bosaiting",
+    "url": "https://github.com/Bosaiting"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0",
+    "dsh": ">=0.2.1-rc.2 <0.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bosaiting/dsh-composer-predictions.git"
+  },
+  "homepage": "https://github.com/Bosaiting/dsh-composer-predictions#readme",
+  "bugs": {
+    "url": "https://github.com/Bosaiting/dsh-composer-predictions/issues"
+  }
+}

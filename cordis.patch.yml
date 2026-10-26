@@ -1,0 +1,17 @@
+# dsh-composer-predictions bundle layer.
+- insert:
+    - id: dsh-composer-predictions
+      name: dsh-composer-predictions
+      config:
+        enabled: true
+        contextMode: clean
+        reasoningEffort: ''
+        maxContextMessages: 12
+        maxMessageChars: 4000
+        maxTotalChars: 16000
+        maxPrefixChars: 24000
+        maxSuggestionChars: 300
+        maxOutputTokens: 400
+        timeoutMs: 8000
+        stubText: ''
+        debug: false

@@ -1,0 +1,78 @@
+# dsh-composer-predictions
+
+[仓库](https://github.com/Bosaiting/dsh-composer-predictions) · [问题反馈](https://github.com/Bosaiting/dsh-composer-predictions/issues) · [English](README.en.md) · [安装与卸载](docs/INSTALL.md) · [隐私与费用](docs/PRIVACY.md) · [已知问题](docs/KNOWN_ISSUES.md)
+
+为 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 的空白输入框预测下一条用户消息。按 **Tab** 插入可编辑草稿，按 **Esc** 忽略本轮建议；接受建议不会自动发送。
+
+这是独立维护的社区插件，与 DeepSeek、OpenAI 均无隶属或背书关系。包名以复数 **predictions** 结尾，安装时请核对完整名称。
+
+![隔离夹具中的建议组件](docs/images/preview.png)
+
+图片来自隔离浏览器夹具，使用模拟回复，展示插件实际渲染的组件。它不含个人工作区、会话列表或账户，不是完整的原生桌面截图。
+
+## 功能
+
+- 正常完成一轮对话后，空白输入框显示一条建议，可重新生成。
+- 隐藏与忽略分开：输入文字、附件或菜单暂时隐藏建议，清空后可恢复；接受或 Esc 会消耗本轮建议。
+- 有效建议可跨会话切换恢复；关闭功能或页面隐藏时停止新的预测请求。
+- 设置 → 通用提供开关、最近失败原因、重试和仅计数的本地使用统计。
+- 限制上下文消息数和字符数，长消息保留开头与结尾；截断保留组合字符。
+- 使用 DSH 模型服务与可撤销插入接口，检测常见输入框建议插件冲突。
+
+## 发布与兼容状态
+
+**0.4.3 源码候选版，尚未发布 npm 或 GitHub Release。** 0.4.3 修复了输入法期间的键盘接管、初始化补取、冲突误判和前后端超时。未解决问题见 [KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md)。
+
+| 项目 | 范围 |
+| --- | --- |
+| DSH 声明范围 | `>=0.2.1-rc.2 <0.3.0`，不代表其中每个版本均已测试 |
+| 原生接口及样式基线 | DSH `0.2.1-rc.2` |
+| 开发工具要求 | Node `^22.19.0 \|\| >=24.0.0`；浏览器检查使用 Chromium |
+| 界面 | DSH Web 客户端，包括桌面应用的 Web 界面 |
+
+自动夹具通过不能替代原生桌面、真实输入法和实际模型验收。本次实际结果见 [验证记录](docs/VALIDATION.md)，复现方法见 [开发说明](docs/DEVELOPMENT.md)。
+
+## 安装
+
+当前可以从源码生成 `.tgz`：
+
+```sh
+git clone https://github.com/Bosaiting/dsh-composer-predictions.git
+cd dsh-composer-predictions
+npm pack
+```
+
+随后使用生成的安装包。桌面应用中打开 **Plugins → Add plugin（插件 → 添加插件）**，输入安装包的绝对路径，核对包名后安装、启用并按提示重启。
+
+Web／独立 profile 可在安装包所在目录执行：
+
+```sh
+dsh plugin --profile web add ./dsh-composer-predictions-0.4.3.tgz
+```
+
+`web` 是目标环境名，请替换为实际使用的 profile。桌面 CLI 的支持取决于具体 DSH 发行版，详见 [完整安装、升级与卸载流程](docs/INSTALL.md)。
+
+## 模型、费用与隐私
+
+启用后会自动预测，**会产生额外模型调用**。默认继承会话的 provider、model 和 reasoning effort，不自动选择更便宜的模型或推理强度。所选模型服务会收到预测上下文；插件没有独立遥测服务器。
+
+预测不写入会话事件日志，也不进入会话 token 用量账本，供应商仍可能计费或消耗订阅额度。缓存能减少请求，但不保证供应商命中前缀缓存。详见 [数据与费用说明](docs/PRIVACY.md)。
+
+## 配置与开发
+
+开关位于设置 → 通用 → **Predict next message**。高级配置位于 profile 补丁，见 [配置说明](docs/CONFIGURATION.md)。
+
+```sh
+npm ci
+npx playwright install chromium
+npm run check
+npm pack
+```
+
+`check` 运行完整检查；`pack` 只执行不需要浏览器、网络或开发依赖的运行文件检查。安装器仍需获取生产依赖。详见 [开发说明](docs/DEVELOPMENT.md) 和 [发布流程](docs/RELEASING.md)。
+
+## 反馈与许可
+
+通过 [GitHub Issues](https://github.com/Bosaiting/dsh-composer-predictions/issues) 反馈问题，附版本和最小复现，先删去密钥、私人路径与会话。见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+[MIT](LICENSE)。测试样式快照和依赖来源见 [第三方声明](THIRD_PARTY_NOTICES.md)。

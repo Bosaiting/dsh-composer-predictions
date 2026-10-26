@@ -1,0 +1,799 @@
+<!-- DSH 0.2.1-rc.2 input CSS + Claude-style 0.19.1 composer CSS snapshot. -->
+<!-- Fixture stylesheet notices: ../THIRD_PARTY_NOTICES.md (MIT portions only). -->
+<!doctype html><meta charset="utf-8"><style>:root{--dsw-alias-label-caption:#888;--dsw-alias-label-secondary:#555;--dsw-alias-label-tertiary:#777;--dsw-specific-input-major:#fff;--dsw-font-family:Arial;--dsh-composer-card-max-width:820px;--dsw-alias-interactive-bg-hover:#eee}body{margin:40px;background:#fafafa}#app{max-width:none} .shell{display:flex;width:100%;gap:16px}aside{flex:none;overflow:hidden;transition:width .2s ease}main{flex:1;min-width:0;display:flex;justify-content:center}main>[data-composer-card]{max-width:820px;width:100%;align-self:flex-start}.yhfFVG_root{padding:0 var(--dsh-composer-side-clearance) 4px;flex-direction:column;align-items:center;display:flex}.yhfFVG_dock{justify-content:center;align-items:center;gap:12px;max-width:100%;padding-top:4px;display:flex}.yhfFVG_hero .yhfFVG_dock:empty{display:none}.yhfFVG_hero{padding:0 var(--dsh-composer-side-clearance)}.yhfFVG_notice{width:100%;max-width:var(--dsh-composer-card-max-width);border-radius:var(--dsw-radius-md);background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-secondary);margin-bottom:6px;padding:4px 8px;font-size:12px;line-height:18px}.yhfFVG_card{box-sizing:border-box;width:100%;max-width:var(--dsh-composer-card-max-width);--dsw-elevation-stroke-color:var(--dsw-alias-border-l2);border-radius:var(--dsw-radius-panel);background:var(--dsw-specific-input-major);box-shadow:var(--dsw-elevation-soft);font-size:var(--dsh-content-font-size,14px);line-height:calc(24px + var(--dsh-content-font-delta,0px));--dsh-scrollbar-thumb:var(--dsw-alias-scrollbar-bg-l2);--dsh-scrollbar-thumb-hover:var(--dsw-alias-scrollbar-hover-l2);border:0;flex-direction:column;gap:12px;padding-top:8px;display:flex;position:relative}.yhfFVG_cardWorkspaceTrigger{--dsw-elevation-stroke-color:transparent;cursor:pointer}.yhfFVG_cardWorkspaceTrigger:after{content:"";box-sizing:border-box;border-radius:var(--dsw-radius-panel);color:var(--dsw-alias-border-l4);pointer-events:none;border:1px dashed;transition:color .1s;position:absolute;inset:0}.yhfFVG_cardWorkspaceTrigger :disabled{pointer-events:none}.yhfFVG_cardWorkspaceTrigger:hover:after{color:var(--dsw-alias-state-business-primary)}.yhfFVG_accessory{align-items:center;gap:8px;padding:10px 12px 0;display:flex}.yhfFVG_overlayAnchor{height:0;position:absolute;inset:0 0 auto}.yhfFVG_scroll{max-height:var(--dsh-composer-text-max-height);margin-right:4px;overflow-y:auto}.yhfFVG_scroll::-webkit-scrollbar-track{margin-top:8px}.yhfFVG_grow{position:relative}.yhfFVG_pending{corner-shape:round;background:var(--dsw-alias-state-business-primary);border-radius:50%;width:8px;height:8px;animation:1s ease-in-out infinite alternate yhfFVG_input-pending}@keyframes yhfFVG_input-pending{0%{opacity:.35}to{opacity:1}}.yhfFVG_input{box-sizing:border-box;min-height:36px;font-family:var(--dsw-font-family);font-size:inherit;line-height:inherit;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;color:var(--dsw-alias-label-primary);caret-color:var(--dsw-alias-state-business-primary);outline:none;padding:4px 8px 0 14px}.yhfFVG_input p{margin:0}.yhfFVG_input p:last-child:after{content:var(--dsh-composer-hint);color:var(--dsw-alias-label-caption)}.yhfFVG_input[data-composer-composing] p:last-child:after{content:none}.yhfFVG_input[data-composer-chip-selected]{caret-color:#0000}.yhfFVG_input[data-composer-composing]+.yhfFVG_placeholder{visibility:hidden}.yhfFVG_placeholder{color:var(--dsw-alias-label-caption);white-space:nowrap;text-overflow:ellipsis;pointer-events:none;user-select:none;position:absolute;inset:4px 8px auto 14px;overflow:hidden}.yhfFVG_inputDisabled{color:var(--dsw-alias-label-tertiary);cursor:not-allowed}.yhfFVG_input[aria-haspopup=menu]{cursor:pointer}.yhfFVG_hero .yhfFVG_input{min-height:52px}.yhfFVG_hero .yhfFVG_placeholder{white-space:normal;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box}.yhfFVG_row{flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;min-width:0;padding:2px 8px 6px;display:flex;container-type:inline-size}.yhfFVG_row[data-model-compact]{--dsh-composer-model-text-display:none;--dsh-composer-model-icon-display:block}.yhfFVG_tools,.yhfFVG_modes,.yhfFVG_trailing{align-items:center;min-width:0;display:flex}.yhfFVG_tools,.yhfFVG_modes{gap:12px}.yhfFVG_trailing{flex:none;gap:12px;margin-left:auto}@container (width<=560px){.yhfFVG_tools,.yhfFVG_modes,.yhfFVG_trailing{gap:8px}}.yhfFVG_add{corner-shape:round;background:var(--dsw-specific-selector);width:28px;height:28px;color:var(--dsw-alias-label-primary);cursor:pointer;border:none;border-radius:999px;flex:none;place-items:center;display:grid}.yhfFVG_add:hover:not(:disabled){background:var(--dsw-alias-interactive-bg-hover-solid)}.yhfFVG_add:disabled{opacity:.5;cursor:default}.yhfFVG_select{border-radius:var(--dsw-radius-sm);max-width:220px;height:28px;color:var(--dsw-alias-label-secondary);white-space:nowrap;cursor:pointer;appearance:none;background-color:#0000;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 4.5L6 7.5L9 4.5' stroke='%2381858C' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-position:right 4px center;background-repeat:no-repeat;background-size:12px 12px;border:none;outline:none;padding:0 20px 0 8px;font-size:13px;font-weight:500;line-height:20px}.yhfFVG_select:hover:not(:disabled){background-color:var(--dsw-alias-interactive-bg-hover)}.yhfFVG_select:disabled{opacity:.5;cursor:default}.yhfFVG_primary{corner-shape:round;background:var(--dsw-alias-button-info-fill);color:#fff;cursor:pointer;border:none;border-radius:999px;flex:none;place-items:center;width:34px;height:34px;transition:background-color .1s;display:grid;transform:translateY(-2px)}.yhfFVG_primary:hover:not(:disabled){background:var(--dsw-alias-button-info-hover)}.yhfFVG_primary:disabled{opacity:.4;cursor:default}.yhfFVG_retry{border-radius:var(--dsw-radius-sm);color:inherit;cursor:pointer;background:0 0;border:1px solid;margin-left:8px;padding:1px 8px;font-size:12px}.yhfFVG_standardControls{align-items:center;gap:12px;min-width:0;display:flex}.yhfFVG_tools[hidden],.yhfFVG_standardControls[hidden]{display:none}.yhfFVG_trailingActive{flex:1;margin-left:0}.yhfFVG_activity{flex:none;align-items:center;display:flex}.yhfFVG_activity:empty{display:none}.yhfFVG_activityExpanded{flex:1;min-width:0}/* ---------- Claude Code layout: composer input + buttons ---------- */
+/* @composer-gate */
+/* Everything from here down is the "Composer restyle" preference's territory:
+   the build stamps `[data-dsh-claude-composer-active]` onto every rule below
+   this marker, and the skin sets that attribute on <body> only while the page
+   on screen is a surface the preference covers. Above the marker sits the hero
+   brand mark and headline, which belong to the brand preference instead — a
+   composer scope of "conversation only" must not revert them. */
+/* The composer card is the input box: one step up in type size, pure white
+   so it separates from the canvas, and an outline 4px tighter than the
+   shipped 22px. */
+body[data-dsh-claude-style] [data-composer-card] {
+  font-size: 15px;
+  border-radius: 18px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  position: relative;
+  z-index: 2;
+  gap: 8px;
+  padding-bottom: 2px;
+  min-height: 0;
+  height: auto;
+  transition: border-color var(--dsh-claude-timing-feedback), box-shadow var(--dsh-claude-timing-feedback);
+}
+
+/* Input height, by composer variant. The hero (new conversation) keeps the
+   tall 86px field it was tuned to. An active conversation instead hugs its
+   draft: the shipped 36px floor holds exactly one line, the contenteditable
+   then grows a line at a time, and .scroll caps the box at
+   --dsh-composer-text-max-height before it starts scrolling. Both hooks are
+   ancestors of the field, so :is() also keeps the tall field through the
+   settling frame, while an active composer matches neither. */
+body[data-dsh-claude-style] :is([data-dsh-claude-part~="composer-hero"], [data-phase="hero"]) [data-composer-input] {
+  min-height: 86px;
+}
+
+body[data-dsh-claude-style] [data-composer-input] {
+  min-height: 36px;
+  height: auto;
+}
+
+/* The hint the skin supplies for the attachment form, where the host draws none.
+   The host renders its own placeholder only while the draft is empty AND
+   nothing is attached, so attaching an image with no text leaves the card
+   without a hint of the host's. The stand-in hangs from the card, as the
+   host draws its own hint among the card's, and sits on the line the field
+   draws its own first line on: the field's inset, read from the card's top. */
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="hero"] [data-dsh-synthetic-placeholder] {
+  position: absolute !important;
+  top: 4px !important;
+  left: 14px !important;
+  right: 8px !important;
+  color: var(--dsw-alias-label-caption) !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+/* The same stand-in in the inline card. The attachment rail stands above the
+   field there, so the hint is placed against the field's own band under that
+   rail rather than at the card's top, and is no wider than the field. */
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"][data-has-attachments="true"] [data-dsh-synthetic-placeholder],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card][data-has-attachments="true"] [data-dsh-synthetic-placeholder] {
+  position: absolute;
+  top: 163px;
+  left: 14px;
+  right: 52px;
+  color: var(--dsw-alias-label-caption);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Tight bottom padding below the button controls row. The part names the host's
+   own `row` and nothing else: the shipped input growth wrapper is `grow`, a
+   different local name, so it cannot take the toolbar-row metrics (D3). */
+body[data-dsh-claude-style] [data-composer-card] [data-dsh-claude-part~="row"] {
+  padding-bottom: 2px;
+}
+
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) [data-composer-card] {
+  background: var(--dsw-specific-input-major);
+  box-shadow: 0 4px 12px rgba(20, 20, 19, 0.04), 0 1px 3px rgba(20, 20, 19, 0.02);
+}
+
+body[data-dsh-claude-style][data-ds-dark-theme] [data-composer-card] {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.30), 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* Focus: the shipped field has no focus face at all — only the caret moves —
+   so this adds one, in the input box's own shadow colour rather than the
+   accent: the hairline takes the drop-shadow tint (espresso in light), a 1px
+   halo in the same tone hugs the edge, and the drop shadow deepens. Dark sits
+   on a near-black canvas, where black-on-black carries no cue at all — there
+   the focus face inverts to a BRIGHT ivory rim and halo, so the field visibly
+   lights up instead of deepening. The tray below continues the same hairline,
+   so its three edges follow whenever the card above it holds focus. */
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) [data-composer-card]:focus-within {
+  border-color: rgba(20, 20, 19, 0.18);
+  box-shadow: 0 0 0 1px rgba(20, 20, 19, 0.065), 0 6px 18px rgba(20, 20, 19, 0.03), 0 2px 6px rgba(20, 20, 19, 0.015);
+}
+
+body[data-dsh-claude-style][data-ds-dark-theme] [data-composer-card]:focus-within {
+  border-color: rgba(250, 249, 245, 0.22);
+  box-shadow: 0 0 0 1px rgba(250, 249, 245, 0.09), 0 6px 24px rgba(0, 0, 0, 0.22), 0 2px 8px rgba(0, 0, 0, 0.11);
+}
+
+/* The seat paints the bar and its fade band (see features/composer/inline.css), so the
+   base rules above hold the pure card fill and the real drop shadow on every variant. */
+
+/* The hero's workspace row sits on the card and takes its focus ring. The row
+   comes before the card in the stack, so no sibling selector reaches it from
+   the card; focus inside the stack but not inside the row itself is the card's
+   (`:has(card:focus-within)` made every DOM change re-match the document). */
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) [data-dsh-claude-part~="composer-stack"]:focus-within > [data-dsh-claude-part~="hero-workspace-row"]:not(:focus-within) {
+  border-color: rgba(20, 20, 19, 0.18);
+}
+
+body[data-dsh-claude-style][data-ds-dark-theme] [data-dsh-claude-part~="composer-stack"]:focus-within > [data-dsh-claude-part~="hero-workspace-row"]:not(:focus-within) {
+  border-color: rgba(250, 249, 245, 0.22);
+}
+
+/* The workspace-trigger variant paints its dashed ring through a masked svg
+   cut with rx=22; re-cut it so the ring tracks the 18px card. */
+body[data-dsh-claude-style] [data-composer-card]:after {
+  border-radius: 18px;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27none%27 rx=%2718%27 ry=%2718%27 stroke=%27black%27 stroke-width=%272%27 stroke-dasharray=%274 4%27/%3E%3C/svg%3E");
+  mask: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27none%27 rx=%2718%27 ry=%2718%27 stroke=%27black%27 stroke-width=%272%27 stroke-dasharray=%274 4%27/%3E%3C/svg%3E");
+}
+
+/* Commands and attach: 7px corners instead of the shipped full circle, no
+   resting fill, and a warm plate on hover. */
+body[data-dsh-claude-style] button[data-dsh-claude-control="commands"] {
+  border-radius: 7px;
+}
+
+/* Send, and the stop/queue/steer labels that replace it while running: the
+   shipped 34px circle becomes a 7px rounded rectangle. */
+body[data-dsh-claude-style] :is(button[data-dsh-claude-control="send"], button[data-dsh-claude-control="stop"]) {
+  border-radius: 7px;
+}
+
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) button[data-dsh-claude-control="commands"] {
+  background: transparent;
+}
+
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) button[data-dsh-claude-control="commands"]:hover:not(:disabled) {
+  background: var(--dsh-claude-chip);
+}
+
+/* Model selector: the same type size as the permission segments and the
+   same 7px corners; its chevron is dropped while the click target and the
+   menu it opens stay exactly as shipped. Its shipped hover token is only a
+   ~6% tint, so the hover plate matches the composer tool buttons. */
+body[data-dsh-claude-style] [data-composer-card] [data-dsh-claude-part~="trigger"] {
+  font-size: 14px;
+  border-radius: 7px;
+}
+
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) [data-composer-card] [data-dsh-claude-part~="trigger"]:hover:not(:disabled) {
+  background: var(--dsh-claude-chip);
+}
+
+body[data-dsh-claude-style] [data-composer-card] [data-dsh-claude-part~="row-chevron"] {
+  display: none;
+}
+
+/* ---------- Claude Code layout: composer footer bar ---------- */
+/* Reference layout: two-tier integrated tray. The top card is a pure white
+   rounded card with drop shadow (z-index: 2). The bottom tray is a seamless
+   equal-width tray (z-index: 1) attached directly to the bottom of the card,
+   with transparent background (inheriting the canvas tone #ffffff),
+   left/right/bottom border, and 18px rounded bottom corners.
+
+   The tray belongs to the CLASSIC home layout: the studio layout
+   (features/home/home-panel.css) places the workspace row as a plain context row
+   above the card and the usage panel between them, so every rule below is
+   scoped away from it. */
+body[data-dsh-claude-style]:not([data-dsh-claude-home-layout="studio"]) [data-dsh-claude-part~="composer-stack"][data-composer-variant="hero"] {
+  --dsh-claude-bar-h: 96px;
+}
+
+body[data-dsh-claude-style]:not([data-dsh-claude-home-layout="studio"]) [data-dsh-claude-part~="composer-stack"][data-composer-variant="hero"] [data-dsh-claude-holds~="composer-card"] {
+  order: 1;
+  padding-bottom: 0 !important;
+}
+
+body[data-dsh-claude-style]:not([data-dsh-claude-home-layout="studio"]) [data-dsh-claude-part~="composer-stack"][data-composer-variant="hero"] [data-composer-card] {
+  gap: 8px !important;
+  padding-bottom: 2px !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+body[data-dsh-claude-style]:not([data-dsh-claude-home-layout="studio"]) [data-dsh-claude-part~="composer-stack"][data-composer-variant="hero"] > [data-dsh-claude-part~="hero-workspace-row"] {
+  order: 2;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  height: calc(var(--dsh-claude-bar-h) + 18px);
+  width: calc(100% - var(--dsh-composer-side-clearance, 0px) - var(--dsh-composer-side-clearance, 0px));
+  max-width: var(--dsh-composer-card-max-width, 100%);
+  margin: calc(0px - var(--dsh-composer-stack-gap, 6px) - 18px) auto 0;
+  padding: 18px 16px 0 16px;
+  background: transparent;
+  border-left: 1px solid var(--dsw-alias-border-l1);
+  border-right: 1px solid var(--dsw-alias-border-l1);
+  border-bottom: 1px solid var(--dsw-alias-border-l1);
+  border-top: none;
+  border-radius: 0 0 18px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color var(--dsh-claude-timing-feedback);
+}
+
+/* Muted typography and 7px corners for footer controls */
+body[data-dsh-claude-style] [data-dsh-claude-part~="hero-workspace-row"] :is(button, [role="button"]) {
+  font-size: 13px;
+  color: var(--dsw-alias-label-secondary);
+  border-radius: 7px;
+}
+
+/* Hide chevrons in the footer tray for a clean, minimal Claude Code look */
+body[data-dsh-claude-style] [data-dsh-claude-part~="hero-workspace-row"] :is([data-dsh-claude-part~="row-chevron"], [data-dsh-claude-part~="trigger-chevron"]) {
+  display: none;
+}
+
+/* ---------- Claude Code layout: composer send button ---------- */
+/* An empty composer keeps the send button in place but drops it to a ghost:
+   transparent plate, a hairline in the input box border colour, and the glyph
+   in the same colour the model control uses for its effort tier (low/high), so
+   it reads as not-ready instead of vanishing. Flat by design (no shadow), and
+   border-box keeps the outer 34px so the row does not shift. The stop/queue/
+   steer labels are untouched, so a running turn keeps its control even with an
+   empty draft. The empty draft is the card's data-dsh-claude-draft-empty mark
+   (packages/client/src/features/composer/composer.ts). */
+body[data-dsh-claude-style] [data-composer-card]:not([data-has-attachments="true"])[data-dsh-claude-draft-empty] button[data-dsh-claude-control="send"] {
+  box-sizing: border-box;
+  background: transparent;
+  color: var(--dsw-alias-label-caption);
+  border: 1px solid var(--dsw-alias-border-l2);
+  box-shadow: none;
+  cursor: default;
+}
+
+
+/* @composer-gate */
+/* ---------- In-conversation single-line composer ---------- */
+/* In an active conversation, compress composer to a single-line input card,
+   render send button as an enter symbol ↵ inside the card on the right,
+   and display toolbar controls directly underneath on the canvas. */
+
+/* Every rule in this file lists its selector twice. The first form reads
+   data-composer-variant, which the composer feature's pass writes
+   (packages/client/src/features/composer/composer.ts); the second reads the host's own structure —
+   data-composer-card is a host attribute that predates the skin, and a
+   composerStack carrying no hero variant holds the inline card. Before the
+   first pass lands, only the second form matches, so dropping it would leave
+   those frames unstyled. New rules keep both forms. */
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"],
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"]:focus-within,
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card]:focus-within {
+  background: transparent;
+  border: none !important;
+  /* No canvas wash here: the seat behind the composer paints the opaque bar and
+     its fade band (see the seat rules below), so the card needs no
+     background-coloured shadow to hide the transcript scrolling past. */
+  box-shadow: none;
+  outline: none;
+  padding: 0;
+  gap: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: var(--dsh-composer-card-max-width, 100%);
+  box-sizing: border-box;
+  overflow: visible;
+  height: auto;
+}
+/* Do NOT override the host viewArea flex contract here. In the active
+   phase the host uses `flex: 1 0 auto; min-height: auto` so the viewArea
+   is content-sized and the sticky composerSeat pins to the scrollport
+   bottom. An earlier override (`flex: 1 1 auto; min-height: 0`) let the
+   viewArea shrink to exactly viewport-minus-composer, which put the
+   composer seat near the TOP of the scroll content — sticky bottom:0
+   cannot pull an element down past its normal position, so the composer
+   appeared mid-scroll and never followed message growth.
+   The one place the skin states that contract is the transcript's own mark
+   below (TRANSCRIPT_ATTR), where the host has withdrawn it: it repeats the
+   active phase's values and nothing else. */
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) {
+  flex: 0 0 auto;
+  overflow: visible;
+  height: auto;
+  max-height: none;
+}
+/* ---------- the transcript's bottom edge ---------- */
+/* The chat fades into the canvas where the composer begins. The seat paints an
+   opaque canvas-coloured BAR across its own box — so the bar's height IS the
+   composer's height (card, toolbar row, stats, dock), nothing to keep in sync —
+   and one GRADIENT band sits directly above it, running from the bar's colour
+   up to transparent.
+   One paint, one token, and it is the host's own idiom — its seat already
+   carries a 36px version of this gradient in the active phase; the bar simply
+   covers the rest of the seat, which the host leaves transparent.
+   `--dsh-composer-fade-h` is the single knob: it is the band's height AND the
+   transcript's bottom clearance below, so the last turn always comes to rest
+   exactly at the band's top edge. */
+body[data-dsh-claude-style] :is([data-phase="active"], [data-content-phase="active"]) [data-composer-seat],
+body[data-dsh-claude-style] [data-dsh-claude-transcript] [data-composer-seat] {
+  background: var(--dsw-alias-bg-base);
+}
+body[data-dsh-claude-style] :is([data-phase="active"], [data-content-phase="active"]) [data-composer-seat]::before,
+body[data-dsh-claude-style] [data-dsh-claude-transcript] [data-composer-seat]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: var(--dsh-composer-fade-h, 40px);
+  /* The stops are --dsh-claude-fade-stops (theme/chrome.css): the same ramp
+     the transcript's top band runs, in reverse. */
+  background: linear-gradient(to top, var(--dsh-claude-fade-stops));
+  pointer-events: none;
+}
+/* The seat's place is the host's as well: `position: sticky; bottom: 0` and the
+   view area's content-sized height are granted from `data-phase="active"`
+   alone. A phase mark landing on `hero` or `settling` with the transcript
+   already up drops both, and the composer then stands in the middle of the
+   rows, which paint on below it. The mark the composer pass writes
+   (composer.ts) says the column is mounted, so the pin and the view area's
+   contract hold under it whatever the phase says; the new-conversation page
+   carries no column and keeps the host's own centred layout. */
+body[data-dsh-claude-style] [data-dsh-claude-transcript] [data-dsh-claude-part~="view-area"] {
+  flex: 1 0 auto;
+  min-height: auto;
+}
+body[data-dsh-claude-style] [data-dsh-claude-transcript] [data-composer-seat] {
+  position: sticky;
+  bottom: 0;
+  z-index: 7;
+}
+/* Message body clearance: the transcript ends where the fade band begins (same
+   token as the band's height), so the last turn's action buttons (copy, retry,
+   …) rest clear of the fade instead of being washed by it. */
+body[data-dsh-claude-style] [data-dsh-claude-part~="view-area"] {
+  padding-bottom: var(--dsh-composer-fade-h, 40px);
+}
+/* The composer is a chat-view affordance. The host keeps the seat mounted on
+   every conversation tab (轨迹 / 上下文 even reserve room for it), but it
+   should only show on the chat tab — drop the whole bottom area otherwise.
+   Hiding the seat also zeroes the host's --dsh-composer-height, so the
+   trajectory ledger's bottom clearance collapses with it. */
+body[data-dsh-claude-style] [data-dsh-claude-composer-hidden] [data-composer-seat] {
+  display: none !important;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"]:not([data-has-attachments="true"]) [data-dsh-claude-part~="attachment-rail"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card]:not([data-has-attachments="true"]) [data-dsh-claude-part~="attachment-rail"] {
+  display: none !important;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"][data-has-attachments="true"] [data-dsh-claude-part~="attachment-rail"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card][data-has-attachments="true"] [data-dsh-claude-part~="attachment-rail"] {
+  background: var(--dsw-specific-input-major, #ffffff);
+  border: 1px solid var(--dsw-alias-border-l1) !important;
+  border-bottom: none !important;
+  border-radius: 14px 14px 0 0;
+  padding: 12px 14px 10px 14px;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: 162px;
+  height: auto;
+  overflow: visible;
+  /* Flat: the seat's bar is what hides the transcript behind the composer, so
+     the rail needs no canvas-coloured shadow of its own to add to it. */
+  box-shadow: none;
+  position: relative;
+  transition: border-color var(--dsh-claude-timing-feedback), box-shadow var(--dsh-claude-timing-feedback);
+}
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) [data-composer-card][data-composer-variant="inline"][data-has-attachments="true"] [data-dsh-claude-part~="attachment-rail"],
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card][data-has-attachments="true"] [data-dsh-claude-part~="attachment-rail"] {
+  background: var(--dsw-specific-input-major);
+  border-color: var(--dsw-alias-border-l1);
+}
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) [data-composer-card][data-composer-variant="inline"]:focus-within [data-dsh-claude-part~="attachment-rail"],
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card]:focus-within [data-dsh-claude-part~="attachment-rail"] {
+  border-color: rgba(20, 20, 19, 0.18) !important;
+}
+body[data-dsh-claude-style][data-ds-dark-theme] [data-composer-card][data-composer-variant="inline"]:focus-within [data-dsh-claude-part~="attachment-rail"],
+body[data-dsh-claude-style][data-ds-dark-theme] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card]:focus-within [data-dsh-claude-part~="attachment-rail"] {
+  border-color: rgba(250, 249, 245, 0.22) !important;
+}
+/* The attachment rail nests two levels: ComposerAttachments' outer rail wraps
+   AttachmentRail's scrolling inner rail, and both carry the host's own `rail`
+   local name, so the block above would draw the card frame twice — one box
+   inside the other. Only the outer shell carries the frame; the inner
+   scrolling rail stays frameless. */
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"][data-has-attachments="true"] [data-dsh-claude-part~="attachment-rail"] [data-dsh-claude-part~="attachment-rail"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card][data-has-attachments="true"] [data-dsh-claude-part~="attachment-rail"] [data-dsh-claude-part~="attachment-rail"] {
+  background: transparent;
+  border: none !important;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  min-height: 140px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+/* Attachment thumbnail card: enlarged by 75% (~140px), matching non-focus
+   border without shadow. The composer pass finds the tiles once per pass and
+   marks them data-dsh-claude-attachment (packages/client/src/features/composer/composer.ts). */
+body[data-dsh-claude-style] [data-composer-card] [data-dsh-claude-part~="attachment-rail"] [data-dsh-claude-attachment] {
+  width: 140px;
+  height: 140px;
+  min-width: 140px;
+  min-height: 140px;
+  max-width: 140px;
+  max-height: 140px;
+  border-radius: 12px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  box-shadow: none;
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+  flex: 0 0 140px;
+  box-sizing: border-box;
+}
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) [data-composer-card] [data-dsh-claude-part~="attachment-rail"] [data-dsh-claude-attachment] {
+  border-color: var(--dsw-alias-border-l1);
+}
+body[data-dsh-claude-style] [data-composer-card] [data-dsh-claude-part~="attachment-rail"] [data-dsh-claude-attachment] :is(img, canvas, [data-dsh-claude-part~="attachment-preview"], [data-dsh-claude-part~="attachment-image"]) {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 11px;
+}
+body[data-dsh-claude-style] [data-composer-card] [data-dsh-claude-part~="attachment-rail"] [data-dsh-claude-attachment] :is(button, [role="button"], [data-dsh-claude-part~="attachment-remove"], [data-dsh-claude-part~="badge"], [data-dsh-claude-part~="tag"]) {
+  position: absolute;
+  z-index: 6;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] [data-input-scroll],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] [data-input-scroll] {
+  background: var(--dsw-specific-input-major, #ffffff);
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 14px;
+  min-height: 38px;
+  height: auto;
+  max-height: var(--dsh-composer-text-max-height, 180px);
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 7px 36px 7px 14px;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  cursor: text;
+  box-shadow: 0 1px 3px rgba(20, 20, 19, 0.03);
+  transition: border-color var(--dsh-claude-timing-feedback), box-shadow var(--dsh-claude-timing-feedback);
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"][data-has-attachments="true"] [data-input-scroll],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card][data-has-attachments="true"] [data-input-scroll] {
+  border-top: none !important;
+  border-radius: 0 0 14px 14px;
+  /* Seamless join with attachment rail above: 1px negative margin prevents subpixel seam without clipping thumbnails */
+  margin-top: -1px;
+  min-height: 32px;
+  padding: 8px 36px 6px 14px;
+}
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) [data-composer-card][data-composer-variant="inline"] [data-input-scroll],
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] [data-input-scroll] {
+  background: var(--dsw-specific-input-major);
+  border-color: var(--dsw-alias-border-l1);
+  box-shadow: 0 1px 3px rgba(20, 20, 19, 0.03);
+}
+body[data-dsh-claude-style][data-ds-dark-theme] [data-composer-card][data-composer-variant="inline"] [data-input-scroll],
+body[data-dsh-claude-style][data-ds-dark-theme] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] [data-input-scroll] {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+/* No workspace picked yet: the host marks the card as a workspace picker with a
+   dashed ring over its whole box. In the single-line form the card is the input
+   box plus the toolbar row on the canvas, so the ring moves onto the input box
+   itself — the host's dashed stroke and colours, hover included — and the
+   card's own ring is dropped. The input box stays flat, the way the host's
+   picker card drops its elevation. */
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"][data-dsh-claude-part~="card-workspace-trigger"]::after,
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card][data-dsh-claude-part~="card-workspace-trigger"]::after {
+  display: none !important;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"][data-dsh-claude-part~="card-workspace-trigger"] [data-input-scroll],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card][data-dsh-claude-part~="card-workspace-trigger"] [data-input-scroll] {
+  border-style: dashed !important;
+  border-color: var(--dsw-alias-border-l4) !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  transition: border-color var(--dsh-claude-timing-feedback) !important;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"][data-dsh-claude-part~="card-workspace-trigger"]:hover [data-input-scroll],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card][data-dsh-claude-part~="card-workspace-trigger"]:hover [data-input-scroll] {
+  border-color: var(--dsw-alias-state-business-primary) !important;
+}
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) [data-composer-card][data-composer-variant="inline"]:focus-within [data-input-scroll],
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card]:focus-within [data-input-scroll] {
+  border-color: rgba(20, 20, 19, 0.18) !important;
+  box-shadow: 0 0 0 1px rgba(20, 20, 19, 0.065), 0 4px 12px rgba(20, 20, 19, 0.025);
+}
+body[data-dsh-claude-style][data-ds-dark-theme] [data-composer-card][data-composer-variant="inline"]:focus-within [data-input-scroll],
+body[data-dsh-claude-style][data-ds-dark-theme] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card]:focus-within [data-input-scroll] {
+  border-color: rgba(250, 249, 245, 0.22) !important;
+  box-shadow: 0 0 0 1px rgba(250, 249, 245, 0.09), 0 4px 16px rgba(0, 0, 0, 0.20);
+}
+/* With attachments the rail already carries the card's focus ring, so the
+   input keeps only the deepened drop — its own 1px ring would paint a second
+   line across the seam between the thumbnails and the text. */
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) [data-composer-card][data-composer-variant="inline"][data-has-attachments="true"]:focus-within [data-input-scroll],
+body[data-dsh-claude-style]:not([data-ds-dark-theme]) [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card][data-has-attachments="true"]:focus-within [data-input-scroll] {
+  box-shadow: 0 4px 12px rgba(20, 20, 19, 0.025);
+}
+body[data-dsh-claude-style][data-ds-dark-theme] [data-composer-card][data-composer-variant="inline"][data-has-attachments="true"]:focus-within [data-input-scroll],
+body[data-dsh-claude-style][data-ds-dark-theme] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card][data-has-attachments="true"]:focus-within [data-input-scroll] {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.20);
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] [data-input-scroll] [data-dsh-claude-part~="input-grow"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] [data-input-scroll] [data-dsh-claude-part~="input-grow"] {
+  width: 100%;
+  max-width: 100%;
+  min-height: 24px;
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] [data-composer-input],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] [data-composer-input] {
+  min-height: 24px;
+  height: auto;
+  line-height: 24px;
+  padding: 0;
+  font-size: 14px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  cursor: text;
+  outline: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  overflow-x: hidden;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] [data-composer-placeholder],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] [data-composer-placeholder] {
+  line-height: 24px;
+  height: 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: var(--dsw-alias-label-caption);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+/* Pinned send and stop buttons inside input box */
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] button[data-dsh-claude-control="send"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] button[data-dsh-claude-control="send"],
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] button[data-dsh-claude-control="stop"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] button[data-dsh-claude-control="stop"] {
+  position: absolute;
+  bottom: 40px;
+  right: 8px;
+  top: auto;
+  left: auto;
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  padding: 0;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--dsh-claude-layer-control);
+}
+/* A portrait mobile plugin centers the same two buttons with a transform paired
+   to a `top` of its own (dsh-remote-web-ui writes `top: 50%` and
+   `translateY(-50%)`). The placement above outranks that `top`, but not the
+   transform: the two together lifted the button half a button above the card,
+   out through its top edge. The skin's own `bottom` is what holds the button on
+   the input line, so the leftover transform goes while that layer owns the
+   page. */
+body[data-dsh-claude-style] [data-composer-card][data-dsh-claude-mobile-portrait] button[data-dsh-claude-control="send"],
+body[data-dsh-claude-style] [data-composer-card][data-dsh-claude-mobile-portrait] button[data-dsh-claude-control="stop"] {
+  transform: none;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] button[data-dsh-claude-control="send"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] button[data-dsh-claude-control="send"] {
+  box-shadow: none;
+  background: transparent;
+  color: var(--dsw-alias-label-caption);
+  border: none !important;
+  cursor: pointer;
+  transition: color var(--dsh-claude-timing-feedback), background-color var(--dsh-claude-timing-feedback);
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] button[data-dsh-claude-control="send"] :is(svg, [data-dsh-claude-part~="row-chevron"], span) {
+  display: none;
+}
+/* The return glyph is drawn, as Claude Code draws it: a short stub along the
+   top, down the right side, and back along the bottom to a left arrowhead, in
+   crisp 1.5px square-cornered strokes filled with the button's own colour. */
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] button[data-dsh-claude-control="send"]::after,
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] button[data-dsh-claude-control="send"]::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.5' stroke-linejoin='miter'%3E%3Cpath d='M8 3.75h5.25v7H3M6 7.75l-3 3 3 3'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.5' stroke-linejoin='miter'%3E%3Cpath d='M8 3.75h5.25v7H3M6 7.75l-3 3 3 3'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] button[data-dsh-claude-control="send"]:not(:disabled):hover,
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] button[data-dsh-claude-control="send"]:not(:disabled):hover {
+  background: var(--dsh-claude-hover-bg, rgba(0, 0, 0, 0.08)) !important;
+  color: var(--dsw-alias-label-primary) !important;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"]:not([data-dsh-claude-draft-empty]) button[data-dsh-claude-control="send"],
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"][data-has-attachments="true"] button[data-dsh-claude-control="send"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card]:not([data-dsh-claude-draft-empty]) button[data-dsh-claude-control="send"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card][data-has-attachments="true"] button[data-dsh-claude-control="send"] {
+  color: var(--dsw-alias-label-primary);
+}
+/* Pinned stop button inside input box */
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] button[data-dsh-claude-control="stop"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] button[data-dsh-claude-control="stop"] {
+  /* Claude's stop control is a bare ink circle with a filled square inside; the
+     plate is hover only, and the glyph is the interface ink — not the accent. */
+  background: transparent;
+  color: var(--dsw-alias-label-primary, #161616);
+  /* The host ships this border with `!important`; only this one has to beat it. */
+  border: none !important;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] button[data-dsh-claude-control="stop"]:hover:not(:disabled),
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] button[data-dsh-claude-control="stop"]:hover:not(:disabled) {
+  background: var(--dsh-claude-hover-bg, rgba(0, 0, 0, 0.08)) !important;
+}
+/* Ring and square are both drawn here: the host ships the square alone, as an SVG
+   glyph, and a scaled glyph rasterizes on a subpixel phase of its own, so at 125%
+   and 150% scalings it lands visibly off the ring's centre. */
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] button[data-dsh-claude-control="stop"]::before,
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] button[data-dsh-claude-control="stop"]::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 16px;
+  height:  16px;
+  box-sizing: border-box;
+  border: 1.6px solid currentColor;
+  border-radius: 50%;
+  corner-shape: round;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] button[data-dsh-claude-control="stop"] svg,
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] button[data-dsh-claude-control="stop"] svg {
+  display: none;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] button[data-dsh-claude-control="stop"]::after,
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] button[data-dsh-claude-control="stop"]::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 4px;
+  height:  4px;
+  border-radius: 1.2px;
+  background: currentColor;
+}
+/* Toolbar row below input card. The part names the host's own `row`: the shipped
+   input growth wrapper is `grow`, a different local name, so the fixed 28px
+   height and flex display here cannot pin the composer field to one line (D3). */
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] [data-dsh-claude-part~="row"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] [data-dsh-claude-part~="row"] {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+  margin: 6px 0 0 0;
+  background: transparent;
+  border: none !important;
+  box-shadow: none;
+  min-height: 28px;
+  height: 28px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+  position: relative;
+  z-index: 3;
+}
+/* The context-occupancy meter renders its click-open panel INSIDE the inline
+   composer card, and its legend classes (`…_rows` / `…_row`) substring-match
+   the toolbar-row override above — which flattened the shipped definition
+   list into one 28px flex line and wrapped every label/value. Restore the
+   shipped legend layout: the list stacks vertically, each row keeps its
+   natural height and space-between distribution. */
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] [data-dsh-claude-part~="rows"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] [data-dsh-claude-part~="rows"] {
+  display: block !important;
+  height: auto !important;
+  min-height: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  padding: 0 !important;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] [data-dsh-claude-part~="rows"] [data-dsh-claude-part~="row"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] [data-dsh-claude-part~="rows"] [data-dsh-claude-part~="row"] {
+  display: flex !important;
+  height: auto !important;
+  min-height: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  padding: 2px 0 !important;
+  margin: 0 !important;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] [data-dsh-claude-part~="tools"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] [data-dsh-claude-part~="tools"] {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  overflow: visible;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] [data-dsh-claude-part~="modes"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] [data-dsh-claude-part~="modes"] {
+  order: 1;
+  display: inline-flex;
+  align-items: center;
+  overflow: visible;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] button[data-dsh-claude-control="commands"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] button[data-dsh-claude-control="commands"] {
+  order: 3;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--dsw-alias-label-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] button[data-dsh-claude-control="commands"]:hover:not(:disabled),
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] button[data-dsh-claude-control="commands"]:hover:not(:disabled) {
+  background: var(--dsh-claude-hover-bg, rgba(0, 0, 0, 0.08));
+  color: var(--dsw-alias-label-primary);
+}
+/* The cluster gives up width when the row is short, and the model name is what
+   that width comes out of: the label carries its own ellipsis
+   (inline-bar.css), and the flex shrink reaching it is what truncates a name
+   too long for the room. `min-width: 0` is what lets the shrink pass a flex
+   item's content-sized floor. The controls the reader presses — the send
+   button, the activity slot — stay at their own width inside it. */
+body[data-dsh-claude-style] [data-composer-card][data-composer-variant="inline"] [data-dsh-claude-part~="trailing"],
+body[data-dsh-claude-style] [data-dsh-claude-part~="composer-stack"]:not([data-composer-variant="hero"]) [data-composer-card] [data-dsh-claude-part~="trailing"] {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+</style><style>
+/* Font selection deliberately uses a data attribute without changing geometry. */
+body[data-test-font="mono"] [data-composer-input]{font-family:monospace!important}
+body[data-test-font="mono"] .dshcp-action{font-family:monospace}
+</style><body data-dsh-claude-style><div id="app"></div><script src="/bundle.js"></script>
