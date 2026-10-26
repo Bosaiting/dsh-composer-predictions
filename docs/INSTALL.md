@@ -13,10 +13,10 @@
 可以在 Plugins → Add plugin 输入 `@bosaiting/dsh-composer-predictions@0.4.3`，独立环境可执行：
 
 ```sh
-dsh plugin --profile web add @bosaiting/dsh-composer-predictions@0.4.3
+dsh plugin --profile web add @bosaiting/dsh-composer-predictions@0.4.3 --save-exact
 ```
 
-本项目旧的本地副本曾使用无作用域名称 `dsh-composer-predictions`，与注册表中另一作者的包同名。升级本项目旧副本时，先停用并卸载旧本地包，再安装新作用域包；不要从注册表下载无作用域包作为升级。新的配置条目 ID 为 `bosaiting-composer-predictions`，状态计数、客户端模块、样式和路由也使用独立命名空间。旧开关、统计和人工配置不会自动迁移；如有需要，按新配置示例重新设置。当前桌面上的旧副本不会在发布时被自动替换。
+本项目旧的本地副本曾使用无作用域名称 `dsh-composer-predictions`，与注册表中另一作者的包同名。升级本项目旧副本时，先停用并卸载旧本地包，再安装新作用域包；不要从注册表下载无作用域包作为升级。新的配置条目 ID 为 `bosaiting-composer-predictions`，状态计数、客户端模块、样式和路由也使用独立命名空间。旧开关、统计和人工配置不会自动迁移；如有需要，按新配置示例重新设置。发布不会自动替换其他使用者的旧副本；需在目标环境完成迁移。
 
 ## 桌面应用：优先使用应用内安装
 
@@ -39,7 +39,7 @@ dsh plugin --profile desktop add ./bosaiting-dsh-composer-predictions-0.4.3.tgz
 dsh plugin --profile desktop list
 ```
 
-随后重新打开应用。若被受管 profile 检查拒绝，回到应用内安装，不要绕过所有权检查。PATH 上的独立 CLI 版本不一定与桌面一致。
+随后重新打开应用。已验证的桌面附带 CLI 支持安装、卸载和列出依赖，但 `--profile desktop --dump-config` 仍会拒绝受管 profile；应在应用插件详情中核对版本、来源和组件运行状态。若安装本身被受管 profile 检查拒绝，回到应用内安装，不要绕过所有权检查。PATH 上的独立 CLI 版本不一定与桌面一致。
 
 ## Web／已有独立 profile
 
@@ -59,7 +59,7 @@ dsh --profile web --dump-config
 先获取公开源码并生成安装包：
 
 ```sh
-git clone https://github.com/Bosaiting/dsh-composer-predictions.git
+git clone --branch v0.4.3 --depth 1 https://github.com/Bosaiting/dsh-composer-predictions.git
 cd dsh-composer-predictions
 npm pack
 ```
@@ -98,6 +98,8 @@ dsh plugin --profile web remove @bosaiting/dsh-composer-predictions
 ## 安装后验证
 
 在无敏感内容的测试会话里完成一轮回复，保持输入框空白。Tab 应只插入草稿、可撤销且不发送；检查 Esc、清空后的恢复、开关及切换会话。无建议时查看最近状态，检查轮次、附件、菜单、模型、冲突和页面可见性。见 [已知问题](KNOWN_ISSUES.md)。
+
+2026-10-26 已完成本机正式 npm 包安装、重启和手工检查；作者确认没有问题。环境、自动检查及覆盖边界见[验收记录](VALIDATION.md)，实际安装页面见[演示与截图](DEMO.md)。
 
 ## 官方依据
 

@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- Update Chinese and English installation instructions and published-version verification records.
+- Record the author-reported desktop acceptance of the official npm 0.4.3 package.
+- Add a six-step component animation for temporary hiding/restoration, Tab insertion and Escape dismissal, plus a native installation screenshot without personal content.
+- Document demo reproduction and distinguish mocked transport from native desktop evidence.
+
+These are documentation and demo updates on the main branch; the published 0.4.3 runtime and release assets remain unchanged.
+
 ## 0.4.3 — 2026-10-26
 
 - Publish as `@bosaiting/dsh-composer-predictions`; isolate module, configuration, styling and transport identifiers from the unrelated unscoped npm package.

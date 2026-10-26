@@ -1,8 +1,31 @@
-# 0.4.3 修复验证
+# 0.4.3 发布与验收
 
-日期：2026-10-26。以下记录本地修复验证；正式发布与注册表验证见 Release、发布清单和 npm 信息。
+更新日期：2026-10-26。当前记录包含自动回归、公开分发验证、正式桌面安装以及作者反馈的手工验收。
 
-公开源码位于 [Bosaiting/dsh-composer-predictions](https://github.com/Bosaiting/dsh-composer-predictions)。以下表格记录本地修复验证；远程 Node 22／24 检查的实时状态与日志见 [GitHub Actions](https://github.com/Bosaiting/dsh-composer-predictions/actions/workflows/ci.yml)。源码公开不等于已发布 GitHub Release 或 npm 包。
+## 发布与安装结果
+
+| 检查 | 结果 |
+| --- | --- |
+| 正式版本 | `@bosaiting/dsh-composer-predictions@0.4.3`，GitHub Release 和 npm 均已公开 |
+| 版本提交 | `3957f4b0644ad00d3e796a55249862b349456a0b`，标签 `v0.4.3` |
+| 远程 CI | 版本标签工作流的 Node 22、24 完整检查及 Release 作业均成功 |
+| 公开资产 | 安装包、包含测试夹具的完整源码 ZIP、SHA-256 清单与发布清单已上传 |
+| npm 与 Release 一致性 | `dist.integrity` 与发布清单一致；两处下载的安装包逐字节一致 |
+| 隔离注册表安装 | 全新 DSH_HOME 中从 npm 安装、配置合成和卸载通过 |
+| 本机正式包安装 | 依赖固定为 npm `0.4.3`；旧本地包引用已移除；20 个安装文件与 Release 对应文件逐字节一致 |
+| 本机配置保留 | 其他依赖声明、bundle 及用户配置保持不变；切换前已备份 |
+| 桌面重启与加载 | 应用重启成功；插件详情显示正确包名、来源、`v0.4.3`、启用和 1 个运行中的组件 |
+| 作者手工验收 | 作者安装正式包后在本机检查，并于 2026-10-26 确认“检查没有问题” |
+
+公开证据：[GitHub Release](https://github.com/Bosaiting/dsh-composer-predictions/releases/tag/v0.4.3)、[发布清单](https://github.com/Bosaiting/dsh-composer-predictions/releases/download/v0.4.3/release-manifest.json)、[版本标签 CI](https://github.com/Bosaiting/dsh-composer-predictions/actions/runs/40304609759)、[npm](https://www.npmjs.com/package/@bosaiting/dsh-composer-predictions)。
+
+## 本机验收环境与反馈范围
+
+- macOS `26.4`；DeepSeek Harness Desktop `0.2.1-rc.2`。
+- 本地定制的 Claude-style `0.19.1` 主题；正式作用域包 `0.4.3`。
+- 安装与重启状态由插件管理界面核对，实际使用由作者自行检验并报告通过。
+
+作者反馈是单机手工验收，没有提供逐项输入法型号、操作日志、延迟或费用测量。以下各专项的细粒度结果来自自动回归，不将它们改写成逐项人工测试。桌面安装截图与模拟操作演示见 [DEMO.md](DEMO.md)。
 
 ## 修复前后对照
 
@@ -21,12 +44,13 @@
 
 额外检查了失败后不会因组合输入自动循环重试、原始建议的缓存与拒绝状态、请求取消、超时状态及晚到结果拒绝。
 
-## 实际执行
+## 自动回归结果
 
 | 检查 | 结果 |
 | --- | --- |
-| Node 25.5.0 完整 npm run check | 通过 |
-| Apple Silicon Node 24.21.0，干净副本 npm ci 后完整检查 | 通过 |
+| Node 25.5.0 本地完整 npm run check | 通过 |
+| Apple Silicon Node 24.21.0，干净副本完整检查 | 通过 |
+| GitHub Node 22／24 版本标签 CI | 均通过，含生产安装和发布归档验证 |
 | 单元脚本 | 11 个通过，包含缓存、预算、路由、设置和取消 |
 | 浏览器布局 | 50 组布局通过，动画中间帧也检查 |
 | 滚动缓存 | 100 次通知，3 次矩形读取，0 次文字重新测量 |
@@ -35,19 +59,19 @@
 | HTTP 预算通知 | 真实 Node HTTP 服务在模型结果前发出 8000／60000ms 预算；正文仍可正常解析 |
 | HTTP 断连取消 | 提前收到响应头后，取消正文读取仍会取消模型流 |
 | npm 生产包 | 干净安装、Host 导入、Client 路径和无开发依赖重新打包通过 |
-| DSH 0.2.1-rc.2 CLI | 全新临时 DSH_HOME 安装、选择 bundle、配置合成与卸载通过 |
-| 公开文件检查 | 元数据、锁文件、文档链接和 npm 实际清单通过；常见密钥格式／个人路径扫描未命中 |
+| Release 归档 | 安装包与提交匹配；源码包含测试夹具；错误标签和过期安装包被拒绝 |
+| 公开文件检查 | 元数据、锁文件、文档链接和实际 npm 清单通过；常见密钥格式／个人路径扫描未命中 |
 
-所有自动模型服务均为模拟，无新增付费模型调用。原 0.4.2 候选文件保留；本次未替换现有桌面插件副本。
+自动回归与公开动图均使用模拟模型。桌面自行验收独立记录，不将模拟响应耗时当作真实模型延迟。文档和演示更新不改写已发布的 v0.4.3 安装包、标签或校验值。
 
-## 边界
+## 发布命名空间与安装注意事项
 
-没有重启当前桌面应用、执行真实系统输入法或任意第三方插件组合的原生验收。模拟事件检查能验证输入法标记、同步保护与定时逻辑，不能证明所有系统输入法都已实测。
+npm 的无作用域名称属于其他作者。本项目发布为 `@bosaiting/dsh-composer-predictions`，客户端模块 ID、配置条目、路由、样式及使用计数均使用独立命名空间。本机已从旧本地依赖切换到正式作用域包；其他使用者按 [INSTALL.md](INSTALL.md) 完成迁移。
 
-DSH 配置合成通过不等于完整应用的路由、设置和键盘界面已完成原生验收。本地记录没有新的真实模型质量／费用评估、公共 Git 安装或 npm 注册表安装结果。远程 CI 结果单独以 Actions 对应提交为准；常见格式扫描不等于完整安全审计。
+桌面附带 CLI 的安装／卸载已实测可用，但该版本对 `--profile desktop --dump-config` 仍报 Electron 受管 profile 限制。桌面加载状态应在应用内核对；隔离 Web profile 的配置合成结果不能替代桌面加载证据。
 
-当前互操作约定和功能范围见 [KNOWN_ISSUES.md](KNOWN_ISSUES.md)，安装见 [INSTALL.md](INSTALL.md)。
+## 仍未覆盖
 
-## 发布命名空间
+其他 DSH 版本、操作系统、主题、输入法及任意第三方插件组合尚未形成验证矩阵；原生桌面的卸载／回退尚无逐项手工记录。没有新的跨模型质量对比、延迟统计或费用测量。Git 来源安装未单独验证，npm 注册表安装已验证。常见格式扫描不等于完整安全审计。
 
-npm 的无作用域名称已属于其他作者。本项目发布为 `@bosaiting/dsh-composer-predictions`，客户端模块 ID、配置条目、路由、样式及使用计数均已隔离。命名空间调整后，Node 25 完整检查和 DSH 0.2.1-rc.2 全新临时环境中的作用域包安装、配置合成、卸载检查均通过。发布资产生成检查覆盖提交匹配、校验值、错误标签和过期安装包拒绝。既有本地桌面副本不会自动替换。
+当前互操作约定和功能范围见 [KNOWN_ISSUES.md](KNOWN_ISSUES.md)，复现方法见 [DEVELOPMENT.md](DEVELOPMENT.md)。

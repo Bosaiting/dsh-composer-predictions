@@ -22,7 +22,7 @@ GitHub CI 使用与 Playwright 版本匹配、固定摘要的[官方预装镜像
 | `npm run check:release` | 元数据、许可证、文档链接、锁文件与 npm 文件清单 |
 | `npm run test:release` | Release 安装包与提交匹配、源码归档、校验值和错误标签拒绝 |
 | `npm run test:package` | 打包后生产安装及入口解析 |
-| `npm run preview` | 隔离夹具重建公开截图，无模型请求 |
+| `npm run preview` | 隔离夹具生成静态预览与六步操作 GIF，需要 FFmpeg，无模型请求 |
 | `npm run check` | 上述完整检查，不重复生成预览 |
 | `npm pack` | 轻量 prepack 后生成 tgz |
 
@@ -36,7 +36,11 @@ tests/browser.html 带原生与主题样式快照；tests/browser-fixture.jsx �
 
 ## 图片与报告
 
-preview 截取夹具内实际组件，输出到 docs/images。禁止用私人会话截图替换。`DSHCP_TEST_REPORT` 可输出浏览器指标，`DSHCP_TEST_CLIENT` 可指定对比源码，`DSHCP_PERF_ONLY` 可运行局部布局性能检查；不要提交含个人路径的报告。
+`npm run preview` 截取夹具内实际组件，生成 `docs/images/preview.png` 和 `docs/images/demo.gif`，并检查隐藏／恢复、Tab 插入与 Esc 忽略的实际组件状态。生成动图还需要 PATH 上的 `ffmpeg`；它不参与安装或 `npm run check`。演示过程不会发送消息或访问现有 DSH 数据。
+
+原生安装截图单独手工采集：进入正式插件详情，收起会话侧栏，确认画面只含公开包名、版本、来源和运行状态后保存。不要公开个人会话、账户、路径、密钥或诊断原文。素材来源与复现说明见 [DEMO.md](DEMO.md)。
+
+`DSHCP_TEST_REPORT` 可输出浏览器指标，`DSHCP_TEST_CLIENT` 可指定对比源码，`DSHCP_PERF_ONLY` 可运行局部布局性能检查；不要提交含个人路径的报告。
 
 ## 原生验收
 

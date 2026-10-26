@@ -1,6 +1,6 @@
 # Historical model samples
 
-These samples concern earlier prompt versions and are not acceptance results for the current release. Current automated checks mock model transport.
+These samples concern earlier prompt versions and are not acceptance results for the current release. Current automated checks mock model transport. Published 0.4.3 installation, CI and the author-reported desktop acceptance are recorded separately in [VALIDATION.md](VALIDATION.md); current demo assets are described in [DEMO.md](DEMO.md).
 
 # Dogfood log — DSH 0.2.1-rc.2 / DeepSeek-V4.1-Flash
 

@@ -6,6 +6,12 @@
 Claude-style 0.19.1 composer CSS snapshot, adapted as a deterministic browser
 fixture. The generated documentation previews render that fixture.
 
+`docs/images/preview.png` and `docs/images/demo.gif` render that fixture with
+mocked responses. `docs/images/desktop-install.png` is a native DSH installation
+screen with a locally customized Claude-style theme. It identifies the installed
+package; no theme engine, font files or mascot assets are redistributed with it.
+Capture details are recorded in [the demo guide](docs/DEMO.md).
+
 - DeepSeek Harness: https://github.com/deepseek-ai/deepseek-harness — MIT.
   Copyright (c) 2026 DeepSeek.
 - dsh-claude-style: https://github.com/Nwflower/dsh-claude-style — the MIT
