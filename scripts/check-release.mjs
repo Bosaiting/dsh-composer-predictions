@@ -18,6 +18,9 @@ for (const [name, entry] of Object.entries(lock.packages)) {
 }
 assert.equal(pkg.scripts.prepack, 'node scripts/check-package.mjs')
 assert.equal(pkg.scripts.prepublishOnly, 'npm run check')
+const workflow = fs.readFileSync(path.join(root, '.github/workflows/ci.yml'), 'utf8')
+assert.ok(workflow.includes('mcr.microsoft.com/playwright:v' + pkg.devDependencies.playwright + '-noble@sha256:'),
+  'CI browser image must match the pinned Playwright dependency')
 for (const name of ['preinstall', 'install', 'postinstall', 'prepare']) {
   assert.equal(pkg.scripts[name], undefined, 'unexpected installation script: ' + name)
 }

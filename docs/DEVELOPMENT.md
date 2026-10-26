@@ -8,7 +8,7 @@ npx playwright install chromium
 npm run check
 ```
 
-Linux CI 使用 `npx playwright install --with-deps chromium`。锁文件使用公共 HTTPS 包源，不依赖作者本机目录。
+GitHub CI 使用与 Playwright 版本匹配、固定摘要的[官方预装镜像](https://playwright.dev/docs/docker)，镜像包含浏览器与系统依赖；升级 Playwright 时同步更新工作流镜像。普通 Linux 环境可使用 `npx playwright install --with-deps chromium`。锁文件使用公共 HTTPS 包源，不依赖作者本机目录。
 
 在 Intel、Rosetta 与 Apple Silicon Node 之间切换时，不要复用另一架构的 node_modules。出现 esbuild 平台不匹配时，在独立副本中用目标 Node 重新 `npm ci`；不要把该环境问题当作插件运行错误。
 
