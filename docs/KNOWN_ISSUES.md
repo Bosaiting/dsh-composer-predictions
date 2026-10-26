@@ -13,7 +13,7 @@
 
 ## 互操作范围
 
-已知 dsh-next-hint 优先；本插件对已知的单数 dsh-composer-prediction 保持单向优先。未知插件应在绘制的建议节点上设置 `data-composer-ghost="完整包名"`，可另设 `data-composer-ghost-priority`。本插件为 100，数值更大者优先，相同数值按包名排序。空值或无效优先级按 200 处理。
+已知 dsh-next-hint 优先；本插件对已知的单数 dsh-composer-prediction 保持单向优先。未知插件应在绘制的建议节点上设置 `data-composer-ghost="完整包名"`，可另设 `data-composer-ghost-priority`。本插件的 marker 标识为 `@bosaiting/dsh-composer-predictions`，优先级为 100，数值更大者优先，相同数值按包名排序。空值或无效优先级按 200 处理。
 
 未知、没有明确标记的插槽仅保留 ghost 单词边界的命名回退，不再泛匹配普通提示或命令补全。无法保证未遵守标记约定的任意第三方插件均可被准确识别。建议同一输入框只启用一种下一条消息建议。
 

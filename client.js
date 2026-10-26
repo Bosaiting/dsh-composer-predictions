@@ -9,50 +9,50 @@
  * none overlay, and acceptance is one undoable plain-text insertion.
  */
 window.__ModuleLoader__.load({
-  id: 'dsh-composer-predictions',
+  id: '@bosaiting/dsh-composer-predictions',
   factory: function (require) {
     var module = { exports: {} }
     var exports = module.exports
     var React = require('react')
 
-    var NS = 'composerPredictions'
-    var STYLE_ID = 'dsh-composer-predictions/styles.css'
-    var ROUTE = '/dsh-composer-predictions/predict'
+    var NS = 'bosaitingComposerPredictions'
+    var STYLE_ID = '@bosaiting/dsh-composer-predictions/styles.css'
+    var ROUTE = '/bosaiting-composer-predictions/predict'
 
     var CSS = [
       // The Claude-style editor paints an opaque sibling at z-index:2 after
       // the overlay slot. Keep predictions above that editor background.
-      '.dshcp-layer{position:absolute;left:0;top:0;width:100%;height:0;z-index:3;pointer-events:none;overflow:visible}',
-      '.dshcp-ghost{box-sizing:border-box;position:absolute;top:var(--dshcp-top,0);left:var(--dshcp-left,0);width:var(--dshcp-width,0);height:auto;padding:var(--dshcp-pad-top,0) var(--dshcp-pad-right,0) 0 var(--dshcp-pad-left,0);font-family:var(--dshcp-font-family,inherit);font-size:var(--dshcp-font-size,inherit);font-weight:var(--dshcp-font-weight,inherit);font-style:var(--dshcp-font-style,inherit);line-height:var(--dshcp-line-height,inherit);letter-spacing:var(--dshcp-letter-spacing,normal);text-align:var(--dshcp-text-align,left);word-spacing:var(--dshcp-word-spacing,normal);text-transform:var(--dshcp-text-transform,none);direction:var(--dshcp-direction,ltr);font-stretch:var(--dshcp-font-stretch,normal);font-variant:var(--dshcp-font-variant,normal);font-feature-settings:var(--dshcp-font-feature-settings,normal);font-variation-settings:var(--dshcp-font-variation-settings,normal);color:var(--dsw-alias-label-caption);user-select:none;pointer-events:none;overflow:visible}',
-      '.dshcp-ghost-text{display:flow-root;overflow:hidden;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;max-height:var(--dshcp-max-height,72px);opacity:.62}',
-      '.dshcp-avoid{float:right;width:var(--dshcp-avoid-width,0);height:var(--dshcp-max-height,24px);shape-outside:inset(var(--dshcp-avoid-top,0) 0 0 0);pointer-events:none}',
-      '.dshcp-actions{position:absolute;right:4px;bottom:0;z-index:3;display:flex;align-items:center;gap:4px;pointer-events:auto}',
-      '.dshcp-action{appearance:none;border:none;padding:1px 6px;border-radius:6px;background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-tertiary);font-size:11px;line-height:16px;white-space:nowrap;cursor:pointer;pointer-events:auto}',
-      '.dshcp-action:hover{color:var(--dsw-alias-label-secondary)}',
-      '.dshcp-action:disabled{opacity:.5;cursor:default}',
-      '.dshcp-action:focus-visible{outline:2px solid var(--dsw-alias-state-business-primary);outline-offset:1px}',
-      '.dshcp-action[data-regen]{min-width:22px;font-size:13px;line-height:14px}',
-      '.dshcp-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}',
-      '[data-ds-dark-theme] .dshcp-ghost-text{color:var(--dsw-alias-label-secondary);opacity:.58}',
-      '[data-ds-dark-theme] .dshcp-action{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-secondary)}',
-      '.dshcp-setting-row{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding:12px 0}',
-      '.dshcp-setting-copy{min-width:0}',
-      '.dshcp-setting-title{color:var(--dsw-alias-label-primary);font-size:13px;line-height:20px}',
-      '.dshcp-setting-desc{margin-top:2px;color:var(--dsw-alias-label-tertiary);font-size:12px;line-height:18px}',
-      '.dshcp-setting-stats{margin-top:6px;color:var(--dsw-alias-label-caption);font-size:11px;line-height:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}',
-      '.dshcp-reset{appearance:none;border:none;padding:0;background:none;color:var(--dsw-alias-link);font-size:11px;line-height:16px;cursor:pointer}',
-      '.dshcp-reset:hover{text-decoration:underline}',
-      '.dshcp-setting-status{margin-top:6px;color:var(--dsw-alias-label-secondary);font-size:11px;line-height:18px}',
-      '.dshcp-switch{position:relative;flex:none;width:36px;height:20px;margin-top:2px;padding:0;border:none;border-radius:999px;background:var(--dsw-alias-border-l2);cursor:pointer;transition:background-color .15s}',
-      '.dshcp-switch[data-on]{background:var(--dsw-alias-button-info-fill)}',
-      '.dshcp-switch:disabled{opacity:.5;cursor:not-allowed}',
-      '.dshcp-switch-thumb{position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .15s}',
-      '.dshcp-switch[data-on] .dshcp-switch-thumb{transform:translateX(16px)}',
-      '[data-dsh-cp-visible] [data-composer-placeholder]{opacity:0!important}',
+      '.bscp-layer{position:absolute;left:0;top:0;width:100%;height:0;z-index:3;pointer-events:none;overflow:visible}',
+      '.bscp-ghost{box-sizing:border-box;position:absolute;top:var(--bscp-top,0);left:var(--bscp-left,0);width:var(--bscp-width,0);height:auto;padding:var(--bscp-pad-top,0) var(--bscp-pad-right,0) 0 var(--bscp-pad-left,0);font-family:var(--bscp-font-family,inherit);font-size:var(--bscp-font-size,inherit);font-weight:var(--bscp-font-weight,inherit);font-style:var(--bscp-font-style,inherit);line-height:var(--bscp-line-height,inherit);letter-spacing:var(--bscp-letter-spacing,normal);text-align:var(--bscp-text-align,left);word-spacing:var(--bscp-word-spacing,normal);text-transform:var(--bscp-text-transform,none);direction:var(--bscp-direction,ltr);font-stretch:var(--bscp-font-stretch,normal);font-variant:var(--bscp-font-variant,normal);font-feature-settings:var(--bscp-font-feature-settings,normal);font-variation-settings:var(--bscp-font-variation-settings,normal);color:var(--dsw-alias-label-caption);user-select:none;pointer-events:none;overflow:visible}',
+      '.bscp-ghost-text{display:flow-root;overflow:hidden;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;max-height:var(--bscp-max-height,72px);opacity:.62}',
+      '.bscp-avoid{float:right;width:var(--bscp-avoid-width,0);height:var(--bscp-max-height,24px);shape-outside:inset(var(--bscp-avoid-top,0) 0 0 0);pointer-events:none}',
+      '.bscp-actions{position:absolute;right:4px;bottom:0;z-index:3;display:flex;align-items:center;gap:4px;pointer-events:auto}',
+      '.bscp-action{appearance:none;border:none;padding:1px 6px;border-radius:6px;background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-tertiary);font-size:11px;line-height:16px;white-space:nowrap;cursor:pointer;pointer-events:auto}',
+      '.bscp-action:hover{color:var(--dsw-alias-label-secondary)}',
+      '.bscp-action:disabled{opacity:.5;cursor:default}',
+      '.bscp-action:focus-visible{outline:2px solid var(--dsw-alias-state-business-primary);outline-offset:1px}',
+      '.bscp-action[data-regen]{min-width:22px;font-size:13px;line-height:14px}',
+      '.bscp-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}',
+      '[data-ds-dark-theme] .bscp-ghost-text{color:var(--dsw-alias-label-secondary);opacity:.58}',
+      '[data-ds-dark-theme] .bscp-action{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-secondary)}',
+      '.bscp-setting-row{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding:12px 0}',
+      '.bscp-setting-copy{min-width:0}',
+      '.bscp-setting-title{color:var(--dsw-alias-label-primary);font-size:13px;line-height:20px}',
+      '.bscp-setting-desc{margin-top:2px;color:var(--dsw-alias-label-tertiary);font-size:12px;line-height:18px}',
+      '.bscp-setting-stats{margin-top:6px;color:var(--dsw-alias-label-caption);font-size:11px;line-height:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}',
+      '.bscp-reset{appearance:none;border:none;padding:0;background:none;color:var(--dsw-alias-link);font-size:11px;line-height:16px;cursor:pointer}',
+      '.bscp-reset:hover{text-decoration:underline}',
+      '.bscp-setting-status{margin-top:6px;color:var(--dsw-alias-label-secondary);font-size:11px;line-height:18px}',
+      '.bscp-switch{position:relative;flex:none;width:36px;height:20px;margin-top:2px;padding:0;border:none;border-radius:999px;background:var(--dsw-alias-border-l2);cursor:pointer;transition:background-color .15s}',
+      '.bscp-switch[data-on]{background:var(--dsw-alias-button-info-fill)}',
+      '.bscp-switch:disabled{opacity:.5;cursor:not-allowed}',
+      '.bscp-switch-thumb{position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .15s}',
+      '.bscp-switch[data-on] .bscp-switch-thumb{transform:translateX(16px)}',
+      '[data-bosaiting-cp-visible] [data-composer-placeholder]{opacity:0!important}',
       // The theme's inline editor rule is more specific and otherwise keeps
       // the field at one line. The preview measures its own wrapped height.
-      '[data-composer-card][data-dsh-cp-visible] [data-composer-input]{min-height:var(--dshcp-editor-min-height,1lh)!important}',
-      '@media (prefers-reduced-motion: reduce){.dshcp-switch,.dshcp-switch-thumb{transition:none}}',
+      '[data-composer-card][data-bosaiting-cp-visible] [data-composer-input]{min-height:var(--bscp-editor-min-height,1lh)!important}',
+      '@media (prefers-reduced-motion: reduce){.bscp-switch,.bscp-switch-thumb{transition:none}}',
     ].join('\n')
 
     var zh = {
@@ -141,7 +141,7 @@ window.__ModuleLoader__.load({
       var previous = document.querySelector('style[data-plugin-css="' + STYLE_ID + '"]')
       if (previous !== null) previous.remove()
       var tag = document.createElement('style')
-      tag.dataset.plugin = 'dsh-composer-predictions'
+      tag.dataset.plugin = '@bosaiting/dsh-composer-predictions'
       tag.dataset.pluginCss = STYLE_ID
       tag.textContent = CSS
       document.head.appendChild(tag)
@@ -219,7 +219,8 @@ window.__ModuleLoader__.load({
       return entry
     }
 
-    var OWN_ID = 'dsh-composer-predictions'
+    var OWN_ID = '@bosaiting/dsh-composer-predictions'
+    var ENTRY_ID = 'bosaiting-composer-predictions'
     var LOWER_PRIORITY_ID = 'dsh-composer-prediction'
     function findConflict(entries, markers, pluginIds) {
       if ((pluginIds || []).includes('dsh-next-hint')) return 'dsh-next-hint'
@@ -236,7 +237,7 @@ window.__ModuleLoader__.load({
       for (var entry of entries || []) {
         var id = entry.options?.id || ''
         var owner = entry.registrant || ''
-        if (id === OWN_ID || owner === OWN_ID || id === 'composer-predict-ghost' || owner === LOWER_PRIORITY_ID) continue
+        if (id === ENTRY_ID || id === OWN_ID || owner === OWN_ID || id === 'composer-predict-ghost' || owner === LOWER_PRIORITY_ID) continue
         if (id === 'dsh-next-hint' || owner === 'dsh-next-hint') return 'dsh-next-hint'
         // A painted peer's explicit priority takes precedence over its slot name.
         if (declared.has(owner) || declared.has(id)) continue
@@ -303,7 +304,7 @@ window.__ModuleLoader__.load({
       mode: 'memory',
     }
 
-    var STATS_KEY = 'dsh-composer-predictions.stats.v1'
+    var STATS_KEY = '@bosaiting/dsh-composer-predictions.stats.v1'
     var EMPTY_STATS = { shown: 0, accepted: 0, regenerated: 0 }
 
     function readStats() {
@@ -464,12 +465,12 @@ window.__ModuleLoader__.load({
         if (container === null) return
         var editor = card.querySelector('[data-composer-input]')
         if (editor === null) return
-        var ghostText = root.querySelector('.dshcp-ghost-text')
+        var ghostText = root.querySelector('.bscp-ghost-text')
         if (ghostText === null) return
         // React owns this empty span; only this layout effect owns its text.
-        var content = root.querySelector('.dshcp-ghost-content')
+        var content = root.querySelector('.bscp-ghost-content')
         if (content === null) return
-        var actions = root.querySelector('.dshcp-actions')
+        var actions = root.querySelector('.bscp-actions')
 
         var disposed = false
         var frame = null
@@ -517,25 +518,25 @@ window.__ModuleLoader__.load({
             style.textTransform, style.direction])
           if (key !== layoutKey) {
             layoutKey = key
-            set('--dshcp-width', (editorRect.width / scale) + 'px')
-            set('--dshcp-pad-top', style.paddingTop)
-            set('--dshcp-pad-right', style.paddingRight)
-            set('--dshcp-pad-left', style.paddingLeft)
-            set('--dshcp-font-family', style.fontFamily)
-            set('--dshcp-font-size', style.fontSize)
-            set('--dshcp-font-weight', style.fontWeight)
-            set('--dshcp-font-style', style.fontStyle)
-            set('--dshcp-line-height', style.lineHeight)
-            set('--dshcp-letter-spacing', style.letterSpacing)
-            set('--dshcp-text-align', style.textAlign)
+            set('--bscp-width', (editorRect.width / scale) + 'px')
+            set('--bscp-pad-top', style.paddingTop)
+            set('--bscp-pad-right', style.paddingRight)
+            set('--bscp-pad-left', style.paddingLeft)
+            set('--bscp-font-family', style.fontFamily)
+            set('--bscp-font-size', style.fontSize)
+            set('--bscp-font-weight', style.fontWeight)
+            set('--bscp-font-style', style.fontStyle)
+            set('--bscp-line-height', style.lineHeight)
+            set('--bscp-letter-spacing', style.letterSpacing)
+            set('--bscp-text-align', style.textAlign)
 
-            set('--dshcp-word-spacing', style.wordSpacing)
-            set('--dshcp-text-transform', style.textTransform)
-            set('--dshcp-direction', style.direction)
-            set('--dshcp-font-stretch', style.fontStretch)
-            set('--dshcp-font-variant', style.fontVariant)
-            set('--dshcp-font-feature-settings', style.fontFeatureSettings)
-            set('--dshcp-font-variation-settings', style.fontVariationSettings)
+            set('--bscp-word-spacing', style.wordSpacing)
+            set('--bscp-text-transform', style.textTransform)
+            set('--bscp-direction', style.direction)
+            set('--bscp-font-stretch', style.fontStretch)
+            set('--bscp-font-variant', style.fontVariant)
+            set('--bscp-font-feature-settings', style.fontFeatureSettings)
+            set('--bscp-font-variation-settings', style.fontVariationSettings)
             // A float shape reserves only the right-hand end of the final line.
             // Earlier lines keep the editor's full content width.
             var lineHeight = parseFloat(style.lineHeight)
@@ -544,7 +545,7 @@ window.__ModuleLoader__.load({
             }
             var padTop = parseFloat(style.paddingTop) || 0
             var padRight = parseFloat(style.paddingRight) || 0
-            set('--dshcp-avoid-width', Math.max(0, actionWidth + 12 - padRight) + 'px')
+            set('--bscp-avoid-width', Math.max(0, actionWidth + 12 - padRight) + 'px')
             var range = document.createRange()
             function bounds(value) {
               if (content.textContent !== value) content.textContent = value
@@ -555,13 +556,13 @@ window.__ModuleLoader__.load({
             var value = typeof text === 'string' ? text : ''
             var lines = 1
             for (; lines <= 3; lines += 1) {
-              set('--dshcp-max-height', (lines * lineHeight) + 'px')
-              set('--dshcp-avoid-top', ((lines - 1) * lineHeight) + 'px')
+              set('--bscp-max-height', (lines * lineHeight) + 'px')
+              set('--bscp-avoid-top', ((lines - 1) * lineHeight) + 'px')
               var bottom = bounds(value)
               // If all text fits above the button line, extend the exclusion
               // into the preceding line so buttons never get an empty row.
               if (lines > 1 && bottom <= (lines - 1) * lineHeight + 0.5) {
-                set('--dshcp-avoid-top', ((lines - 2) * lineHeight) + 'px')
+                set('--bscp-avoid-top', ((lines - 2) * lineHeight) + 'px')
                 bottom = bounds(value)
               }
               if (bottom <= lines * lineHeight + 0.5 || lines === 3) break
@@ -583,8 +584,8 @@ window.__ModuleLoader__.load({
               editorHeight += padTop + (parseFloat(style.paddingBottom) || 0)
                 + (parseFloat(style.borderTopWidth) || 0) + (parseFloat(style.borderBottomWidth) || 0)
             }
-            if (card.style.getPropertyValue('--dshcp-editor-min-height') !== editorHeight + 'px') {
-              card.style.setProperty('--dshcp-editor-min-height', editorHeight + 'px')
+            if (card.style.getPropertyValue('--bscp-editor-min-height') !== editorHeight + 'px') {
+              card.style.setProperty('--bscp-editor-min-height', editorHeight + 'px')
             }
 
             // A sticky composer moves when its height changes; measure again so
@@ -592,13 +593,13 @@ window.__ModuleLoader__.load({
             editorRect = editor.getBoundingClientRect()
             containerRect = container.getBoundingClientRect()
           }
-          set('--dshcp-top', ((editorRect.top - containerRect.top) / scale) + 'px')
-          set('--dshcp-left', ((editorRect.left - containerRect.left) / scale) + 'px')
-          set('--dshcp-height', (editorRect.height / scale) + 'px')
+          set('--bscp-top', ((editorRect.top - containerRect.top) / scale) + 'px')
+          set('--bscp-left', ((editorRect.left - containerRect.left) / scale) + 'px')
+          set('--bscp-height', (editorRect.height / scale) + 'px')
         }
 
         // Only a visible preview owns the temporary editor height.
-        card.setAttribute('data-dsh-cp-visible', '')
+        card.setAttribute('data-bosaiting-cp-visible', '')
         place()
         var observer = new ResizeObserver(onResize)
         observer.observe(card)
@@ -640,8 +641,8 @@ window.__ModuleLoader__.load({
           if (visualViewport !== null && visualViewport !== undefined) {
             visualViewport.removeEventListener('resize', schedule)
           }
-          card.removeAttribute('data-dsh-cp-visible')
-          card.style.removeProperty('--dshcp-editor-min-height')
+          card.removeAttribute('data-bosaiting-cp-visible')
+          card.style.removeProperty('--bscp-editor-min-height')
         }
       }, [visible, text])
     }
@@ -792,7 +793,7 @@ window.__ModuleLoader__.load({
           signal: controller.signal,
           credentials: 'same-origin',
         }).then(function (response) {
-          var budget = response.headers?.get?.('x-dshcp-timeout-ms')
+          var budget = response.headers?.get?.('x-bscp-timeout-ms')
           if (budget !== null && budget !== undefined) {
             clearTimeout(timer)
             timer = setTimeout(timedOut, Math.max(0, clientDeadlineMs(budget) - (Date.now() - started)))
@@ -1058,36 +1059,36 @@ window.__ModuleLoader__.load({
         bumpStat('shown')
       }, [visible, prediction, sessionId])
 
-      var anchor = React.createElement('span', { ref: anchorRef, hidden: true, 'data-dshcp-anchor': '' })
+      var anchor = React.createElement('span', { ref: anchorRef, hidden: true, 'data-bscp-anchor': '' })
       if (!visible) return anchor
 
       return React.createElement(React.Fragment, null,
         anchor,
         React.createElement('div', {
           ref: rootRef,
-          className: 'dshcp-layer',
-          'data-dshcp-prediction': '',
+          className: 'bscp-layer',
+          'data-bscp-prediction': '',
           'data-composer-ghost': OWN_ID,
           'data-composer-ghost-priority': '100',
         },
           React.createElement('div', {
-            className: 'dshcp-ghost',
+            className: 'bscp-ghost',
             title: prediction.text,
           },
             React.createElement('div', {
-              className: 'dshcp-ghost-text',
+              className: 'bscp-ghost-text',
               'aria-hidden': 'true',
             },
-              React.createElement('span', { className: 'dshcp-avoid', 'aria-hidden': 'true' }),
-              React.createElement('span', { className: 'dshcp-ghost-content' }),
+              React.createElement('span', { className: 'bscp-avoid', 'aria-hidden': 'true' }),
+              React.createElement('span', { className: 'bscp-ghost-content' }),
             ),
             React.createElement('div', {
-              className: 'dshcp-actions',
+              className: 'bscp-actions',
               'aria-busy': regenerating ? 'true' : 'false',
             },
               React.createElement('button', {
                 type: 'button',
-                className: 'dshcp-action',
+                className: 'bscp-action',
                 'data-regen': '',
                 'aria-label': regenerating ? t('regenerating') : t('regenerate'),
                 title: regenerating ? t('regenerating') : t('regenerate'),
@@ -1097,7 +1098,7 @@ window.__ModuleLoader__.load({
               }, regenerating ? '…' : '↻'),
               React.createElement('button', {
                 type: 'button',
-                className: 'dshcp-action',
+                className: 'bscp-action',
                 'aria-label': t('hint'),
                 title: t('hint'),
                 onMouseDown: function (event) { event.preventDefault() },
@@ -1107,7 +1108,7 @@ window.__ModuleLoader__.load({
           ),
         ),
         React.createElement('div', {
-          className: 'dshcp-sr',
+          className: 'bscp-sr',
           role: 'status',
           'aria-live': 'polite',
           'aria-atomic': 'true',
@@ -1143,16 +1144,16 @@ window.__ModuleLoader__.load({
       }
 
       return React.createElement('div', {
-        className: 'dshcp-setting-row',
-        'data-dshcp-setting': 'predictions',
+        className: 'bscp-setting-row',
+        'data-bscp-setting': 'predictions',
       },
-        React.createElement('div', { className: 'dshcp-setting-copy' },
-          React.createElement('div', { className: 'dshcp-setting-title' }, t('settingTitle')),
+        React.createElement('div', { className: 'bscp-setting-copy' },
+          React.createElement('div', { className: 'bscp-setting-title' }, t('settingTitle')),
           React.createElement('div', {
-            className: 'dshcp-setting-desc',
-            id: 'dshcp-setting-description',
+            className: 'bscp-setting-desc',
+            id: 'bscp-setting-description',
           }, t('settingDescription')),
-          React.createElement('div', { className: 'dshcp-setting-stats' },
+          React.createElement('div', { className: 'bscp-setting-stats' },
             t('stats', {
               shown: localStats.shown,
               accepted: localStats.accepted,
@@ -1160,18 +1161,18 @@ window.__ModuleLoader__.load({
             }),
             React.createElement('button', {
               type: 'button',
-              className: 'dshcp-reset',
+              className: 'bscp-reset',
               onClick: resetStats,
             }, t('resetStats')),
           ),
-          React.createElement('div', { className: 'dshcp-setting-status', role: 'status', 'aria-live': 'polite' },
+          React.createElement('div', { className: 'bscp-setting-status', role: 'status', 'aria-live': 'polite' },
             t('recentStatus', {
               reason: t('reason.' + (diagnostic.conflict ? 'conflict' : diagnostic.reason), { name: diagnostic.conflict }),
               timing: diagnostic.ms === null ? '' : ' · ' + diagnostic.ms + ' ms',
             }),
             ' ',
             React.createElement('button', {
-              type: 'button', className: 'dshcp-reset',
+              type: 'button', className: 'bscp-reset',
               disabled: !diagnostic.canRetry || diagnostic.reason === 'requesting',
               onClick: function () { retryPrediction?.() },
             }, t('retry')),
@@ -1180,19 +1181,19 @@ window.__ModuleLoader__.load({
         React.createElement('button', {
           type: 'button',
           role: 'switch',
-          className: 'dshcp-switch',
+          className: 'bscp-switch',
           'aria-label': t('settingTitle'),
-          'aria-describedby': 'dshcp-setting-description',
+          'aria-describedby': 'bscp-setting-description',
           'aria-checked': enabled,
           'data-on': enabled ? '' : undefined,
           disabled: disabled,
           onClick: toggle,
-        }, React.createElement('span', { className: 'dshcp-switch-thumb' })),
+        }, React.createElement('span', { className: 'bscp-switch-thumb' })),
       )
     }
 
     function apply(ctx) {
-      settingsRef = ctx.configForms.get('dsh-composer-predictions')
+      settingsRef = ctx.configForms.get(ENTRY_ID)
 
       ctx.effect(function () {
         var disposed = false, frame = null, active = false, observer = null
@@ -1306,7 +1307,7 @@ window.__ModuleLoader__.load({
       ctx.slots.inject('conversation.input.overlay', function () {
         return ctx.slots.register({
           name: 'conversation.input.overlay',
-          id: 'dsh-composer-predictions',
+          id: ENTRY_ID,
           order: 20,
           locale: NS,
         }, PredictionOverlay)
@@ -1315,7 +1316,7 @@ window.__ModuleLoader__.load({
       ctx.slots.inject('settings.general.item', function () {
         return ctx.slots.register({
           name: 'settings.general.item',
-          id: 'dsh-composer-predictions-setting',
+          id: ENTRY_ID + '-setting',
           order: 60,
           locale: NS,
         }, SettingsRow)

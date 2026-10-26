@@ -1,7 +1,9 @@
 # Changelog
 
-## 0.4.3 — Unreleased
+## 0.4.3 — 2026-10-26
 
+- Publish as `@bosaiting/dsh-composer-predictions`; isolate module, configuration, styling and transport identifiers from the unrelated unscoped npm package.
+- Add a tag-triggered GitHub Release job that depends on both CI versions and verifies archive/commit identity.
 - Scope IME state to the owning composer, synchronously check native composition markers and preserve DSH's 10 ms handoff guard for keyboard and button acceptance.
 - Retain catch-up intent until a request actually starts; resume after temporary guards clear without retrying a completed failure automatically.
 - Let explicit peer ghost priority override slot-name fallback; stop treating generic hint/completion/predict/suggest UI names as conflicts. Coalesce registry and DOM updates.

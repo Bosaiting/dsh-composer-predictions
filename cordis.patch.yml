@@ -1,7 +1,7 @@
 # dsh-composer-predictions bundle layer.
 - insert:
-    - id: dsh-composer-predictions
-      name: dsh-composer-predictions
+    - id: bosaiting-composer-predictions
+      name: '@bosaiting/dsh-composer-predictions'
       config:
         enabled: true
         contextMode: clean

@@ -11,8 +11,8 @@
 import { randomUUID } from 'node:crypto'
 import z from '@deepseek-ai/schemastery'
 
-const ROUTE = '/dsh-composer-predictions/predict'
-const PLUGIN_ID = 'dsh-composer-predictions'
+const ROUTE = '/bosaiting-composer-predictions/predict'
+const PLUGIN_ID = 'bosaiting-composer-predictions'
 const PROMPT_VERSION = '4'
 
 /**
@@ -768,7 +768,7 @@ async function handle(ctx, req, res, getOptions, cache, inflight, controllers) {
     res.writeHead(200, {
       'content-type': 'application/json; charset=utf-8',
       'cache-control': 'no-store',
-      'x-dshcp-timeout-ms': String(predictionTimeoutMs(options.timeoutMs)),
+      'x-bscp-timeout-ms': String(predictionTimeoutMs(options.timeoutMs)),
     })
     res.flushHeaders()
   }

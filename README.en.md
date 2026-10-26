@@ -4,7 +4,7 @@
 
 Predict the next user message in the empty [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) composer. **Tab** inserts an editable draft; **Esc** dismisses the offer for that turn. Acceptance never submits a message.
 
-An independently maintained community plugin, unaffiliated with DeepSeek or OpenAI. Verify the plural package name, **dsh-composer-predictions**.
+An independently maintained community plugin, unaffiliated with DeepSeek or OpenAI. The npm package is **`@bosaiting/dsh-composer-predictions`**. The unscoped package belongs to another author.
 
 ![Actual component rendered in an isolated mocked fixture](docs/images/preview.png)
 
@@ -14,11 +14,19 @@ This uses the real client component and mocked replies, without personal workspa
 
 One suggestion per completed turn, regeneration, temporary hiding versus dismissal, session cache, failure diagnostics and retry, bounded context, undoable insertion, and coexistence checks. No new prediction calls while the page is hidden or the feature is disabled.
 
-**0.4.3 source candidate; not published to npm or as a GitHub Release.** Version 0.4.3 fixes native IME guards, deferred initial catch-up, coexistence false positives and the client/host deadline mismatch. The declared DSH range is `>=0.2.1-rc.2 <0.3.0`; the native API/CSS baseline is `0.2.1-rc.2`, not a claim of testing every release. Development needs Node `^22.19.0 || >=24.0.0` and Chromium for browser tests.
+**Current version: 0.4.3.** See [GitHub Release](https://github.com/Bosaiting/dsh-composer-predictions/releases/tag/v0.4.3) and the [npm package](https://www.npmjs.com/package/@bosaiting/dsh-composer-predictions) for published assets. Version 0.4.3 fixes native IME guards, deferred initial catch-up, coexistence false positives and the client/host deadline mismatch. The declared DSH range is `>=0.2.1-rc.2 <0.3.0`; the native API/CSS baseline is `0.2.1-rc.2`, not a claim of testing every release. Development needs Node `^22.19.0 || >=24.0.0` and Chromium for browser tests.
 
 Read [known issues](docs/KNOWN_ISSUES.md), including remaining validation and interoperability limits, and the [validation record](docs/VALIDATION.md). Fixture tests do not establish native desktop acceptance. Detailed maintenance documents are currently in Chinese.
 
 ## Install and remove
+
+Install from npm:
+
+```sh
+dsh plugin --profile web add @bosaiting/dsh-composer-predictions@0.4.3
+```
+
+Disable and remove this project's old local package before installing the scoped package. Configuration IDs and CSS/DOM identifiers are now namespaced to avoid collisions with the unrelated unscoped npm project.
 
 Build a tarball from source:
 
@@ -33,10 +41,10 @@ Desktop: open **Plugins → Add plugin**, enter the absolute path to a trusted r
 Web, from the directory containing the tarball:
 
 ```sh
-dsh plugin --profile web add ./dsh-composer-predictions-0.4.3.tgz
+dsh plugin --profile web add ./bosaiting-dsh-composer-predictions-0.4.3.tgz
 # Stop and restart the Web host if needed.
 # To uninstall:
-dsh plugin --profile web remove dsh-composer-predictions
+dsh plugin --profile web remove @bosaiting/dsh-composer-predictions
 ```
 
 Replace `web` with the intended profile. Older CLIs reject the managed Desktop profile; compatible Desktop-bundled CLIs can manage it after the app fully quits. Do not edit the desktop dependency graph by hand. See [installation](docs/INSTALL.md).

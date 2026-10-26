@@ -1,6 +1,6 @@
 # 维护者发布流程
 
-当前公开仓库为 [Bosaiting/dsh-composer-predictions](https://github.com/Bosaiting/dsh-composer-predictions)。**0.4.3** 为源码候选版，尚未上传 Release 或发布 npm。[Actions](https://github.com/Bosaiting/dsh-composer-predictions/actions) 展示远程 CI 的实际状态；本地与原生验收边界见 [VALIDATION.md](VALIDATION.md)。
+当前公开仓库为 [Bosaiting/dsh-composer-predictions](https://github.com/Bosaiting/dsh-composer-predictions)。当前版本为 **0.4.3**，npm 包名为 `@bosaiting/dsh-composer-predictions`。版本资产与发布状态以 [Release](https://github.com/Bosaiting/dsh-composer-predictions/releases) 和 npm 注册表为准。[Actions](https://github.com/Bosaiting/dsh-composer-predictions/actions) 展示远程 CI 的实际状态；本地与原生验收边界见 [VALIDATION.md](VALIDATION.md)。
 
 ## 公开内容
 
@@ -23,6 +23,8 @@ npm run check
 npm pack
 ```
 
+npm 发布使用 `@bosaiting/dsh-composer-predictions`，无作用域包名已被其他作者占用。发布的安装包必须与 Release 资产的校验值一致。
+
 prepublishOnly 执行完整检查；prepack 仅用 Node 内置模块验证运行文件，不下载浏览器、不调用模型、不依赖开发包。用 `npm pack --dry-run --json` 核对最终清单，并人工检查源码、图片和版权。
 
 macOS/Linux 可用 `shasum -a 256 文件名.tgz`；Windows PowerShell 可用 `Get-FileHash 文件名.tgz -Algorithm SHA256`。对实际准备上传的文件计算校验值。
@@ -37,11 +39,21 @@ npm 生产安装或浏览器夹具通过，都不等于原生桌面验收。
 
 检查将提交的列表，保留第三方声明。当前仓库已建立，后续在 main 分支维护源码。可以添加官方建议的 `dsh-plugin` topic，发布 Release 前确认对应提交的 CI 实际成功。
 
-对通过验证的提交创建 `v0.4.3` 标签。Release 附 tgz、SHA-256、更新说明及已知问题；标签、包和源码版本一致。Git 源码安装应固定经过验证的提交；创建 v0.4.3 标签后，也可以固定该标签。
+对通过验证的提交创建并推送 `v0.4.3` 标签。工作流先运行 Node 22／24 的完整检查；全部通过后，发布作业使用当次 CI 的安装包创建 GitHub Release，并附上完整源码、校验文件和 release-manifest.json。只有发布作业拥有本仓库临时写权限，不需要上传长期 GitHub token。标签、包和源码版本一致。Git 源码安装应固定经过验证的提交；创建 v0.4.3 标签后，也可以固定该标签。
 
 ## npm 和 Discover（可选）
 
-GitHub 开源和 tgz 分发无需 npm。选择 npm 时先确认包名归属及账户，补全仓库元数据，使用 npm 当前支持的认证方式；可选受信任发布和来源证明，不把 token 写入仓库。随附 CI 仅检查、打包和保留 artifact，不自动发布。
+GitHub 开源和 tgz 分发无需 npm。选择 npm 时先确认包名归属及账户，补全仓库元数据，使用 npm 当前支持的认证方式；可选受信任发布和来源证明，不把 token 写入仓库。主分支和 PR 的 CI 只检查与保留 artifact；版本标签在检查通过后自动发布 GitHub Release。npm 仍由维护者登录后发布，不在本仓库存放 npm 凭据。
+
+下载该 Release 的安装包与校验文件，核对 SHA-256 后发布同一文件：
+
+```sh
+npm whoami --registry=https://registry.npmjs.org
+npm publish ./bosaiting-dsh-composer-predictions-0.4.3.tgz --access public --registry=https://registry.npmjs.org
+npm view @bosaiting/dsh-composer-predictions@0.4.3 dist.integrity --registry=https://registry.npmjs.org
+```
+
+最后一个值应与 Release 中 `release-manifest.json` 的 `npmIntegrity` 一致。不要在这一步重新打包；发布的是已经通过 CI 的同一份文件。
 
 GitHub/npm 发布不会自动加入所有 Discover。可申请社区索引收录，或稍后生成格式 1 索引；版本、来源和 engines.dsh 与包一致，Git 来源固定完整 SHA。首次公开无需新建市场插件。
 

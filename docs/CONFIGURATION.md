@@ -3,7 +3,7 @@
 日常开关在设置 → 通用。高级选项放在目标 profile 的 `cordis.patch.yml`。覆盖已有条目时使用同一 ID，无需插入第二个实例：
 
 ```yaml
-- id: dsh-composer-predictions
+- id: bosaiting-composer-predictions
   config:
     enabled: true
     provider: ''
@@ -45,4 +45,4 @@ DSH 的后续补丁层按条目覆盖整个 config，不做字段深合并；缺
 
 在独立测试环境将 stubText 改成 `请补充一个边界情况的例子。` 可检查界面。体验后清空，否则每次都返回固定文字。数据与费用见 [PRIVACY.md](PRIVACY.md)，限制见 [KNOWN_ISSUES.md](KNOWN_ISSUES.md)。
 
-Host 在等待模型前通过 `x-dshcp-timeout-ms` 响应头发布归一化预算。前端从请求开始计时；尚未收到或缺少有效响应头时，使用最大 60000ms 加 5000ms 的安全上限。此截止时间同时覆盖响应正文等待，不只覆盖 fetch 返回响应头。
+Host 在等待模型前通过 `x-bscp-timeout-ms` 响应头发布归一化预算。前端从请求开始计时；尚未收到或缺少有效响应头时，使用最大 60000ms 加 5000ms 的安全上限。此截止时间同时覆盖响应正文等待，不只覆盖 fetch 返回响应头。

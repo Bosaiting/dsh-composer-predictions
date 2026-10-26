@@ -1,16 +1,26 @@
 # 安装、升级和卸载
 
-对应源码候选版本 **0.4.3**。[公开仓库](https://github.com/Bosaiting/dsh-composer-predictions) 已建立，尚未发布 npm 或 GitHub Release。请先从源码生成安装包，不要安装注册表中碰巧同名的包。
+对应版本 **0.4.3**。来源：[公开仓库](https://github.com/Bosaiting/dsh-composer-predictions)、[GitHub Release](https://github.com/Bosaiting/dsh-composer-predictions/releases/tag/v0.4.3) 和 [npm](https://www.npmjs.com/package/@bosaiting/dsh-composer-predictions)。请核对完整作用域名称。
 
 ## 来源与要求
 
-核对完整包名 **dsh-composer-predictions**，注意末尾 `s`。有发布者提供的 SHA-256 时，先比对下载文件。需要 DSH `>=0.2.1-rc.2 <0.3.0`；原生接口基线是 `0.2.1-rc.2`，并未逐版本验证整个范围。
+核对完整包名 **`@bosaiting/dsh-composer-predictions`**。无作用域的同名 npm 包属于其他作者，不是本项目。有发布者提供的 SHA-256 时，先比对下载文件。需要 DSH `>=0.2.1-rc.2 <0.3.0`；原生接口基线是 `0.2.1-rc.2`，并未逐版本验证整个范围。
 
 普通用户无需 React、Playwright 或构建工具。安装器仍需解析生产依赖，首次安装通常需要网络。插件需要会话、模型、设置和 Web 客户端服务；裸 headless 环境不会显示建议。
 
+## npm 安装与旧本地副本迁移
+
+可以在 Plugins → Add plugin 输入 `@bosaiting/dsh-composer-predictions@0.4.3`，独立环境可执行：
+
+```sh
+dsh plugin --profile web add @bosaiting/dsh-composer-predictions@0.4.3
+```
+
+本项目旧的本地副本曾使用无作用域名称 `dsh-composer-predictions`，与注册表中另一作者的包同名。升级本项目旧副本时，先停用并卸载旧本地包，再安装新作用域包；不要从注册表下载无作用域包作为升级。新的配置条目 ID 为 `bosaiting-composer-predictions`，状态计数、客户端模块、样式和路由也使用独立命名空间。旧开关、统计和人工配置不会自动迁移；如有需要，按新配置示例重新设置。当前桌面上的旧副本不会在发布时被自动替换。
+
 ## 桌面应用：优先使用应用内安装
 
-1. 下载可信的 `dsh-composer-predictions-0.4.3.tgz`。
+1. 下载可信的 `bosaiting-dsh-composer-predictions-0.4.3.tgz`。
 2. 打开 **Plugins → Add plugin（插件 → 添加插件）**，输入安装包的绝对路径。不要把 shell 引号当作路径一部分。
 3. 核对安装预览的包名、版本和来源，安装并启用。不同发行版按钮名称可能不同。
 4. 按提示完全退出并重新启动；仅刷新页面可能无法重载 Host。
@@ -25,7 +35,7 @@
 先启动一次桌面应用；在其 **Manage dsh Command…** 注册附带 CLI，新开终端核对 `dsh --version`。**完全退出应用**，再在安装包目录执行：
 
 ```sh
-dsh plugin --profile desktop add ./dsh-composer-predictions-0.4.3.tgz
+dsh plugin --profile desktop add ./bosaiting-dsh-composer-predictions-0.4.3.tgz
 dsh plugin --profile desktop list
 ```
 
@@ -37,7 +47,7 @@ dsh plugin --profile desktop list
 
 ```sh
 dsh --version
-dsh plugin --profile web add ./dsh-composer-predictions-0.4.3.tgz
+dsh plugin --profile web add ./bosaiting-dsh-composer-predictions-0.4.3.tgz
 dsh plugin --profile web list
 dsh --profile web --dump-config
 ```
@@ -59,7 +69,7 @@ npm pack
 ```sh
 export DSH_HOME="$(mktemp -d)"
 dsh --profile predictions-demo --from-default-profile web --dump-config
-dsh plugin --profile predictions-demo add ./dsh-composer-predictions-0.4.3.tgz
+dsh plugin --profile predictions-demo add ./bosaiting-dsh-composer-predictions-0.4.3.tgz
 dsh --profile predictions-demo --port 49321 --no-open
 ```
 
@@ -74,13 +84,13 @@ dsh --profile predictions-demo --port 49321 --no-open
 临时关闭设置开关会隐藏建议、取消请求并停止自动预测。桌面卸载从 Plugins 中找到完整包名并卸载，按提示重启。使用兼容的桌面 CLI 时先完全退出应用，再执行：
 
 ```sh
-dsh plugin --profile desktop remove dsh-composer-predictions
+dsh plugin --profile desktop remove @bosaiting/dsh-composer-predictions
 ```
 
 独立环境执行：
 
 ```sh
-dsh plugin --profile web remove dsh-composer-predictions
+dsh plugin --profile web remove @bosaiting/dsh-composer-predictions
 ```
 
 卸载不会删除会话。使用计数可在卸载前点击设置行的重置。若人工配置过插件专属覆盖项，卸载后检查并移除该项，保留其他设置；不要清空全部本地存储、缓存或登录数据。

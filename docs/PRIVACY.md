@@ -24,7 +24,7 @@
 | 前端建议 | 内存，最多 40 个会话，建议 10 分钟 TTL |
 | 接受／忽略状态 | 前端内存，绑定轮次和配置，受会话容量约束 |
 | 最近原因与耗时 | 内存，界面只显示清洗后的原因 |
-| 使用计数 | localStorage 的 `dsh-composer-predictions.stats.v1`；设置中可重置 |
+| 使用计数 | localStorage 的 `@bosaiting/dsh-composer-predictions.stats.v1`；设置中可重置 |
 | 开关和人工配置 | DSH profile，由 DSH 设置服务管理 |
 
 计数只包含 shown/accepted/regenerated，不含正文、会话、模型或提示词，也不发送到独立分析端点。进程／页面退出会清除所属内存缓存。

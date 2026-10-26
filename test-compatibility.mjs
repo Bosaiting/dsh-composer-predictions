@@ -94,12 +94,12 @@ try {
     return event.defaultPrevented
   })
   await page.clock.runFor(30)
-  report.ownOfferDuringOtherIME = await page.locator('.dshcp-ghost').count()
+  report.ownOfferDuringOtherIME = await page.locator('.bscp-ghost').count()
   // Completion/help UI is not evidence that another plugin paints a ghost.
   await open(); await page.clock.runFor(400)
   await page.evaluate(() => fixture.overlays([{ options: { id: 'completion-help-dialog' }, registrant: 'completion-help' }]))
   await page.clock.runFor(30)
-  report.unrelatedOverlay = await page.locator('.dshcp-ghost').count()
+  report.unrelatedOverlay = await page.locator('.bscp-ghost').count()
   // Explicit low priority wins over the same owner's ghost-like slot name.
   await open(); await page.clock.runFor(400)
   await page.evaluate(() => {
@@ -108,10 +108,10 @@ try {
     fixture.overlays([{ options: { id: 'peer-ghost' }, registrant: 'peer-package' }])
   })
   await page.clock.runFor(30)
-  report.explicitLowPriority = await page.locator('.dshcp-ghost').count()
+  report.explicitLowPriority = await page.locator('.bscp-ghost').count()
   await page.evaluate(() => document.querySelector('[data-composer-ghost="peer-package"]').setAttribute('data-composer-ghost-priority', '200'))
   await page.clock.runFor(30)
-  report.explicitHighPriority = await page.locator('.dshcp-ghost').count()
+  report.explicitHighPriority = await page.locator('.bscp-ghost').count()
   await open('mode=pending'); await page.clock.runFor(400)
   await page.evaluate(() => {
     const node = document.createElement('div'); node.setAttribute('data-composer-ghost', 'peer-package')

@@ -5,7 +5,7 @@ import { currentOptions } from './host.js'
 {
   const config = { enabled: true, stubText: 'STUB', maxContextMessages: 12 }
   const settings = {
-    describe: () => [{ ns: 'dsh-composer-predictions', value: { enabled: false } }],
+    describe: () => [{ ns: 'bosaiting-composer-predictions', value: { enabled: false } }],
   }
   const options = currentOptions(config, settings)
   assert.equal(options.enabled, false)

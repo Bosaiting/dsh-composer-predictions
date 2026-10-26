@@ -7,7 +7,7 @@ import { build } from 'esbuild'
 import { chromium } from 'playwright'
 const root = path.dirname(fileURLToPath(import.meta.url))
 let source = await fs.readFile(path.join(root, 'client.js'), 'utf8')
-source = source.replace('function refresh() {', 'function refresh() { window.perfCounters.conflictScans++;')
+source = source.replace('function refresh() {\n          if (disposed || !active) return', 'function refresh() { window.perfCounters.conflictScans++;\n          if (disposed || !active) return')
   .replace('function onMutations(records) {', 'function onMutations(records) { window.perfCounters.mutationCallbacks++;')
   .replace('function place() {', 'function place() { window.perfCounters.placements++;')
   .replace('resizeFrame = window.requestAnimationFrame(function',
@@ -57,7 +57,7 @@ try {
     }
   }
   await open('case=short'); await page.clock.runFor(450)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 1)
+  assert.equal(await page.locator('.bscp-ghost').count(), 1)
   await page.evaluate(() => fixture.enable(false)); await page.clock.runFor(50); await reset()
   await unrelatedChanges()
   report.disabled = await page.evaluate(() => ({ ...perfCounters }))
@@ -65,7 +65,7 @@ try {
   assert.equal(report.disabled.mutationCallbacks, 0)
   assert.equal(report.disabled.fullDocumentQueries, 0)
   await page.evaluate(() => fixture.enable(true)); await page.clock.runFor(450)
-  await page.locator('.dshcp-ghost').waitFor(); await page.clock.runFor(50); await reset()
+  await page.locator('.bscp-ghost').waitFor(); await page.clock.runFor(50); await reset()
   await unrelatedChanges()
   report.enabledUnrelated = await page.evaluate(() => ({ ...perfCounters }))
   assert.equal(report.enabledUnrelated.conflictScans, 0)
@@ -73,22 +73,22 @@ try {
   // Relevant additions, attribute changes and removal still invalidate conflicts.
   await page.evaluate(() => { const node = document.createElement('div'); node.id = 'peer'; node.setAttribute('data-composer-ghost', 'another-plugin'); document.body.append(node) })
   await page.clock.runFor(30)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 0)
+  assert.equal(await page.locator('.bscp-ghost').count(), 0)
   await page.evaluate(() => document.getElementById('peer').setAttribute('data-composer-ghost-priority', '50'))
   await page.clock.runFor(30)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 1)
+  assert.equal(await page.locator('.bscp-ghost').count(), 1)
   await page.evaluate(() => document.getElementById('peer').setAttribute('data-composer-ghost-priority', '200'))
   await page.clock.runFor(30)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 0)
+  assert.equal(await page.locator('.bscp-ghost').count(), 0)
   await page.evaluate(() => document.getElementById('peer').remove()); await page.clock.runFor(30)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 1)
+  assert.equal(await page.locator('.bscp-ghost').count(), 1)
   // Signals introduced on an already-connected element are observed as well.
   await page.evaluate(() => document.getElementById('unrelated').setAttribute('data-next-hint-anchor', ''))
   await page.clock.runFor(30)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 0)
+  assert.equal(await page.locator('.bscp-ghost').count(), 0)
   await page.evaluate(() => document.getElementById('unrelated').removeAttribute('data-next-hint-anchor'))
   await page.clock.runFor(50)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 1)
+  assert.equal(await page.locator('.bscp-ghost').count(), 1)
   report.incrementalConflicts = 'add / priority / remove / existing-node attributes passed'
   // Both ResizeObservers share the same requestAnimationFrame placement slot.
   await reset()
@@ -123,13 +123,13 @@ try {
   assert.equal(await page.evaluate(() => fixture.requests.length), 0)
   await page.evaluate(() => fixture.setVisibility('visible')); await page.clock.runFor(450)
   assert.equal(await page.evaluate(() => fixture.requests.length), 1)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 1)
+  assert.equal(await page.locator('.bscp-ghost').count(), 1)
   // A completed offer resumes without asking again.
   await page.evaluate(() => fixture.setVisibility('hidden')); await page.clock.runFor(500)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 0)
+  assert.equal(await page.locator('.bscp-ghost').count(), 0)
   await page.evaluate(() => fixture.setVisibility('visible')); await page.clock.runFor(450)
   assert.equal(await page.evaluate(() => fixture.requests.length), 1)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 1)
+  assert.equal(await page.locator('.bscp-ghost').count(), 1)
   report.visibility = 'hidden startup / newest-turn catch-up / cached resume passed'
   // Abort on hide; an adapter ignoring abort must not resurrect its old result.
   await open('mode=pending'); await page.clock.runFor(400)
@@ -143,7 +143,7 @@ try {
     fixture.pending[0]({ ok: true, text: 'Old hidden result', turnId: 1 })
     fixture.pending[1]({ ok: true, text: 'Current foreground result', turnId: 2 })
   }); await page.clock.runFor(50)
-  assert.equal(await page.locator('.dshcp-ghost').getAttribute('title'), 'Current foreground result')
+  assert.equal(await page.locator('.bscp-ghost').getAttribute('title'), 'Current foreground result')
   report.hiddenAbort = 'cancellation and stale-result rejection passed'
   assert.deepEqual(errors, [])
   if (process.env.DSHCP_PERFORMANCE_REPORT) await fs.writeFile(process.env.DSHCP_PERFORMANCE_REPORT, JSON.stringify(report, null, 2))

@@ -1,6 +1,6 @@
 # 0.4.3 修复验证
 
-日期：2026-10-26。状态：本地修复候选包，未外部发布。
+日期：2026-10-26。以下记录本地修复验证；正式发布与注册表验证见 Release、发布清单和 npm 信息。
 
 公开源码位于 [Bosaiting/dsh-composer-predictions](https://github.com/Bosaiting/dsh-composer-predictions)。以下表格记录本地修复验证；远程 Node 22／24 检查的实时状态与日志见 [GitHub Actions](https://github.com/Bosaiting/dsh-composer-predictions/actions/workflows/ci.yml)。源码公开不等于已发布 GitHub Release 或 npm 包。
 
@@ -47,3 +47,7 @@
 DSH 配置合成通过不等于完整应用的路由、设置和键盘界面已完成原生验收。本地记录没有新的真实模型质量／费用评估、公共 Git 安装或 npm 注册表安装结果。远程 CI 结果单独以 Actions 对应提交为准；常见格式扫描不等于完整安全审计。
 
 当前互操作约定和功能范围见 [KNOWN_ISSUES.md](KNOWN_ISSUES.md)，安装见 [INSTALL.md](INSTALL.md)。
+
+## 发布命名空间
+
+npm 的无作用域名称已属于其他作者。本项目发布为 `@bosaiting/dsh-composer-predictions`，客户端模块 ID、配置条目、路由、样式及使用计数均已隔离。命名空间调整后，Node 25 完整检查和 DSH 0.2.1-rc.2 全新临时环境中的作用域包安装、配置合成、卸载检查均通过。发布资产生成检查覆盖提交匹配、校验值、错误标签和过期安装包拒绝。既有本地桌面副本不会自动替换。

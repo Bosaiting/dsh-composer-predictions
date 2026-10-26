@@ -36,13 +36,13 @@ const sandbox = {
 vm.createContext(sandbox)
 vm.runInContext(source, sandbox, { filename: 'client.js' })
 assert.ok(loaded !== null)
-assert.equal(loaded.id, 'dsh-composer-predictions')
+assert.equal(loaded.id, '@bosaiting/dsh-composer-predictions')
 
 const registrations = []
 const effects = []
 const configForms = {
   get(namespace) {
-    assert.equal(namespace, 'dsh-composer-predictions')
+    assert.equal(namespace, 'bosaiting-composer-predictions')
     return {
       getSnapshot: () => ({ status: 'ready', value: { enabled: true }, writable: true }),
       subscribe: () => () => {},
@@ -52,7 +52,7 @@ const configForms = {
 }
 const ctx = {
   effect(fn) { effects.push(fn); return fn() },
-  locale: { register(ns, dicts) { assert.equal(ns, 'composerPredictions'); assert.ok(dicts.zh && dicts.en) } },
+  locale: { register(ns, dicts) { assert.equal(ns, 'bosaitingComposerPredictions'); assert.ok(dicts.zh && dicts.en) } },
   configForms,
   slots: {
     inject(name, cb) { cb() },
@@ -71,10 +71,11 @@ assert.deepEqual(registrations.map((r) => r.options.name), [
   'conversation.input.overlay',
   'settings.general.item',
 ])
-assert.equal(registrations[0].options.id, 'dsh-composer-predictions')
-assert.equal(registrations[1].options.id, 'dsh-composer-predictions-setting')
+assert.equal(registrations[0].options.id, 'bosaiting-composer-predictions')
+assert.equal(registrations[1].options.id, 'bosaiting-composer-predictions-setting')
 assert.ok(styleTags.length === 1)
-assert.ok(styleTags[0].dataset.pluginCss.includes('dsh-composer-predictions'))
+assert.equal(styleTags[0].dataset.pluginCss, '@bosaiting/dsh-composer-predictions/styles.css')
+assert.equal(styleTags[0].dataset.plugin, '@bosaiting/dsh-composer-predictions')
 
 // The pure Tab guard must fail closed: disabled, running, composing, typing,
 // attachments and a missing prediction all reject.
@@ -107,7 +108,7 @@ sandbox.Date = RealDate
 for (let i = 0; i < 41; i++) rememberOffer('bounded-' + i, '1:10', 'a', null, 'accepted')
 assert.equal(readOffer('bounded-0', '1:10', 'a'), null)
 assert.equal(readOffer('bounded-40', '1:10', 'a').disposition, 'accepted')
-assert.equal(findConflict([{ options: { id: 'dsh-composer-predictions' } }, { options: { id: 'composer-predict-ghost' } }], [], []), '')
+assert.equal(findConflict([{ options: { id: 'bosaiting-composer-predictions' } }, { options: { id: 'composer-predict-ghost' } }], [], []), '')
 assert.equal(findConflict([{ options: { id: 'slash-menu' } }], [], []), '')
 assert.equal(findConflict([{ options: { id: 'another-ghost' } }], [], []), 'another-ghost')
 assert.equal(findConflict([], [], ['dsh-next-hint']), 'dsh-next-hint')
@@ -115,6 +116,7 @@ const marker = (name, priority) => ({ getAttribute: key => key === 'data-compose
 assert.equal(findConflict([], [marker('dsh-composer-prediction', '999')], []), '')
 assert.equal(findConflict([], [marker('another-plugin', '200')], []), 'another-plugin')
 assert.equal(findConflict([], [marker('another-plugin', '50')], []), '')
+assert.equal(findConflict([], [marker('dsh-composer-predictions', '200')], []), 'dsh-composer-predictions')
 for (const id of ['completion-help-dialog', 'hint-tooltip', 'suggestion-menu', 'predict-settings']) {
   assert.equal(findConflict([{ options: { id }, registrant: 'input-completion' }], [], []), '')
 }

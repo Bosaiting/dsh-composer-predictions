@@ -10,16 +10,16 @@ import { npm } from './scripts/npm-command.mjs'
 
 const root = path.dirname(fileURLToPath(import.meta.url))
 const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'))
-const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'dshcp-package-'))
+const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'bscp-package-'))
 try {
   const candidate = path.join(temporary, 'candidate')
   const consumer = path.join(temporary, 'consumer')
   const repacked = path.join(temporary, 'repacked')
   for (const directory of [candidate, consumer, repacked]) fs.mkdirSync(directory)
   npm(['pack', '--pack-destination', candidate, '--silent'], { cwd: root, stdio: 'pipe' })
-  const tarball = path.join(candidate, pkg.name + '-' + pkg.version + '.tgz')
+  const tarball = path.join(candidate, pkg.name.replace(/^@/, '').replace('/', '-') + '-' + pkg.version + '.tgz')
   assert.ok(fs.existsSync(tarball))
-  fs.writeFileSync(path.join(consumer, 'package.json'), JSON.stringify({ name: 'dshcp-package-consumer', version: '1.0.0', private: true, type: 'module' }))
+  fs.writeFileSync(path.join(consumer, 'package.json'), JSON.stringify({ name: 'bscp-package-consumer', version: '1.0.0', private: true, type: 'module' }))
   npm(['install', '--omit=dev', '--no-audit', '--no-fund', tarball], { cwd: consumer, stdio: 'pipe' })
   const installed = path.join(consumer, 'node_modules', pkg.name)
   for (const name of ['playwright', 'esbuild', 'react-dom']) {
@@ -31,14 +31,14 @@ try {
   const probe = `import assert from 'node:assert/strict';
     import { createRequire } from 'node:module';
     import fs from 'node:fs';
-    import * as host from 'dsh-composer-predictions';
+    import * as host from ${JSON.stringify(pkg.name)};
     const require = createRequire(import.meta.url);
-    const pkg = require('dsh-composer-predictions/package.json');
+    const pkg = require(${JSON.stringify(pkg.name + '/package.json')});
     assert.equal(pkg.version, ${JSON.stringify(pkg.version)});
     assert.equal(typeof host.apply, 'function');
     assert.equal(typeof host.Config, 'function');
     assert.equal(typeof host.Config.toJSON, 'function');
-    assert.match(fs.readFileSync(require.resolve('dsh-composer-predictions/client'), 'utf8'), /__ModuleLoader__/);
+    assert.match(fs.readFileSync(require.resolve(${JSON.stringify(pkg.name + '/client')}), 'utf8'), /__ModuleLoader__/);
     assert.equal(pkg.dsh.bundle.patch, './cordis.patch.yml');`
   fs.writeFileSync(path.join(consumer, 'probe.mjs'), probe)
   execFileSync(process.execPath, [path.join(consumer, 'probe.mjs')], { cwd: consumer, stdio: 'pipe' })

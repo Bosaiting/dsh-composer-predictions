@@ -4,7 +4,7 @@
 
 为 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 的空白输入框预测下一条用户消息。按 **Tab** 插入可编辑草稿，按 **Esc** 忽略本轮建议；接受建议不会自动发送。
 
-这是独立维护的社区插件，与 DeepSeek、OpenAI 均无隶属或背书关系。包名以复数 **predictions** 结尾，安装时请核对完整名称。
+这是独立维护的社区插件，与 DeepSeek、OpenAI 均无隶属或背书关系。npm 包名为 **`@bosaiting/dsh-composer-predictions`**。无作用域的同名 npm 包属于其他作者，安装时请核对完整名称。
 
 ![隔离夹具中的建议组件](docs/images/preview.png)
 
@@ -21,7 +21,7 @@
 
 ## 发布与兼容状态
 
-**0.4.3 源码候选版，尚未发布 npm 或 GitHub Release。** 0.4.3 修复了输入法期间的键盘接管、初始化补取、冲突误判和前后端超时。未解决问题见 [KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md)。
+**当前版本：0.4.3。** 发布资产见 [GitHub Release](https://github.com/Bosaiting/dsh-composer-predictions/releases/tag/v0.4.3)，注册表信息见 [npm](https://www.npmjs.com/package/@bosaiting/dsh-composer-predictions)。 0.4.3 修复了输入法期间的键盘接管、初始化补取、冲突误判和前后端超时。未解决问题见 [KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md)。
 
 | 项目 | 范围 |
 | --- | --- |
@@ -33,6 +33,14 @@
 自动夹具通过不能替代原生桌面、真实输入法和实际模型验收。本次实际结果见 [验证记录](docs/VALIDATION.md)，复现方法见 [开发说明](docs/DEVELOPMENT.md)。
 
 ## 安装
+
+通过 npm 安装：
+
+```sh
+dsh plugin --profile web add @bosaiting/dsh-composer-predictions@0.4.3
+```
+
+从本项目早期本地副本升级时，先停用并卸载旧本地包，再安装带作用域的新包。迁移说明见安装文档。
 
 当前可以从源码生成 `.tgz`：
 
@@ -47,7 +55,7 @@ npm pack
 Web／独立 profile 可在安装包所在目录执行：
 
 ```sh
-dsh plugin --profile web add ./dsh-composer-predictions-0.4.3.tgz
+dsh plugin --profile web add ./bosaiting-dsh-composer-predictions-0.4.3.tgz
 ```
 
 `web` 是目标环境名，请替换为实际使用的 profile。桌面 CLI 的支持取决于具体 DSH 发行版，详见 [完整安装、升级与卸载流程](docs/INSTALL.md)。

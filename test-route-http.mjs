@@ -88,7 +88,7 @@ async function* abortableStream(signal, text, waitMs, state) {
       body: JSON.stringify({ sessionId: 's1' }),
     })
     assert.equal(response.status, 200)
-    assert.equal(response.headers.get('x-dshcp-timeout-ms'), '8000')
+    assert.equal(response.headers.get('x-bscp-timeout-ms'), '8000')
     const body = await response.json()
     assert.equal(body.text, 'Add tests')
     assert.equal(state.aborted, false)
@@ -138,7 +138,7 @@ async function* abortableStream(signal, text, waitMs, state) {
       method: 'POST', headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ sessionId: 's1' }), signal: AbortSignal.timeout(2000),
     })
-    assert.equal(response.headers.get('x-dshcp-timeout-ms'), '60000')
+    assert.equal(response.headers.get('x-bscp-timeout-ms'), '60000')
     release()
     assert.equal((await response.json()).text, 'After the gate')
   } finally {

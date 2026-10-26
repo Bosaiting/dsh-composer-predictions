@@ -8,7 +8,7 @@ import { execFileSync } from 'node:child_process'
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
 const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'))
-assert.equal(pkg.name, 'dsh-composer-predictions')
+assert.equal(pkg.name, '@bosaiting/dsh-composer-predictions')
 assert.notEqual(pkg.private, true, 'public distribution must not be marked private')
 assert.equal(pkg.license, 'MIT')
 assert.equal(typeof pkg.engines?.dsh, 'string', 'declare engines.dsh at package root')
@@ -27,7 +27,8 @@ for (const name of ['host.js', 'client.js']) {
   execFileSync(process.execPath, ['--check', path.join(root, name)], { stdio: 'pipe' })
 }
 const patch = fs.readFileSync(path.join(root, 'cordis.patch.yml'), 'utf8')
-assert.match(patch, /name: dsh-composer-predictions\s/)
-assert.match(patch, /id: dsh-composer-predictions\s/)
+assert.ok(patch.includes("name: '" + pkg.name + "'"))
+assert.match(patch, /id: bosaiting-composer-predictions\s/)
 assert.match(fs.readFileSync(path.join(root, 'LICENSE'), 'utf8'), /MIT License/)
+assert.ok(fs.readFileSync(path.join(root, 'client.js'), 'utf8').includes("id: '" + pkg.name + "'"), 'client module id must match package name')
 console.log('package: runtime files, metadata and syntax: ok')

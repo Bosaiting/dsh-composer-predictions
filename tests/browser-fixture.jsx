@@ -22,7 +22,7 @@ const listeners = new Set(), settingsListeners = new Set()
 const requests = [], pending = []
 let overlayEntries = []
 const overlayListeners = new Set()
-const headers = { get: name => name === 'x-dshcp-timeout-ms' ? params.get('hostTimeout') || '8000' : null }
+const headers = { get: name => name === 'x-bscp-timeout-ms' ? params.get('hostTimeout') || '8000' : null }
 function update(patch) {
   const before = state
   state = { ...state, ...patch }
@@ -99,9 +99,9 @@ Element.prototype.getBoundingClientRect = function () { counters.rectangles++; r
 const rangeRect = Range.prototype.getBoundingClientRect
 Range.prototype.getBoundingClientRect = function () { counters.textMeasurements++; return rangeRect.call(this) }
 function metrics() {
-  const editor = document.querySelector('[data-composer-input]'), ghost = document.querySelector('.dshcp-ghost'),
-    text = document.querySelector('.dshcp-ghost-text'), content = document.querySelector('.dshcp-ghost-content'),
-    actions = document.querySelector('.dshcp-actions'), row = document.querySelector('.yhfFVG_row')
+  const editor = document.querySelector('[data-composer-input]'), ghost = document.querySelector('.bscp-ghost'),
+    text = document.querySelector('.bscp-ghost-text'), content = document.querySelector('.bscp-ghost-content'),
+    actions = document.querySelector('.bscp-actions'), row = document.querySelector('.yhfFVG_row')
   if (!editor || !ghost) return null
   const er = editor.getBoundingClientRect(), gr = ghost.getBoundingClientRect(), tr = text.getBoundingClientRect(), ar = actions.getBoundingClientRect()
   const range = document.createRange(); range.selectNodeContents(content)

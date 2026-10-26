@@ -26,7 +26,7 @@ try {
   page.on('pageerror', error => errors.push(error.message))
   await page.goto('http://127.0.0.1:' + server.address().port + '/?case=short')
   await page.waitForFunction(() => window.fixture?.ready)
-  await page.locator('.dshcp-ghost').waitFor()
+  await page.locator('.bscp-ghost').waitFor()
   await page.addStyleTag({ content: `body{margin:40px;background:#f6f7f9;font-family:Arial,sans-serif;color:#30333a}
     #app>button,.shell>aside,[data-test-settings]{display:none!important}
     .shell{display:block}main{display:block}main>[data-composer-card]{max-width:none}

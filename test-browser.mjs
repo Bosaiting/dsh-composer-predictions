@@ -32,7 +32,7 @@ try {
   async function painted() {
     await page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))))
   }
-  async function visible() { await page.locator('.dshcp-ghost').waitFor(); await painted() }
+  async function visible() { await page.locator('.bscp-ghost').waitFor(); await painted() }
   function check(m, label, animated = false) {
     assert.ok(m, label + ': no overlay')
     assert.ok(m.lines >= .99 && m.lines <= 3.01, label + ': line cap ' + m.lines)
@@ -87,13 +87,13 @@ try {
   assert.ok(report.performance.rectangles <= 12, JSON.stringify(report.performance))
   // Tab inserts the full suggestion even when its visual preview is ellipsized.
   await page.setViewportSize({ width: 640, height: 800 }); await painted()
-  const full = await page.locator('.dshcp-ghost').getAttribute('title')
-  assert.ok((await page.locator('.dshcp-ghost-content').textContent()).endsWith('…'))
+  const full = await page.locator('.bscp-ghost').getAttribute('title')
+  assert.ok((await page.locator('.bscp-ghost-content').textContent()).endsWith('…'))
   await page.getByRole('textbox').focus(); await page.keyboard.press('Tab')
   assert.equal(await page.getByRole('textbox').textContent(), full)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 0)
-  assert.equal(await page.locator('[data-composer-card]').getAttribute('data-dsh-cp-visible'), null)
-  assert.equal(await page.locator('[data-composer-card]').evaluate(el => el.style.getPropertyValue('--dshcp-editor-min-height')), '')
+  assert.equal(await page.locator('.bscp-ghost').count(), 0)
+  assert.equal(await page.locator('[data-composer-card]').getAttribute('data-bosaiting-cp-visible'), null)
+  assert.equal(await page.locator('[data-composer-card]').evaluate(el => el.style.getPropertyValue('--bscp-editor-min-height')), '')
   // Regeneration shrinks/grows again without losing the exclusion geometry.
   await open('case=long'); await visible()
   await page.getByRole('button', { name: '重新生成', exact: true }).click(); await painted()
@@ -113,24 +113,24 @@ try {
   // Temporary guards hide a completed offer; clearing them restores it without
   // any request. Explicit rejection is remembered across session switches.
   await open('case=short'); await page.clock.runFor(400); await visible()
-  const original = await page.locator('.dshcp-ghost').getAttribute('title')
+  const original = await page.locator('.bscp-ghost').getAttribute('title')
   for (const [hidden, restored] of [
     [{ draft: 'typed' }, { draft: '' }],
     [{ attachmentIds: ['file'] }, { attachmentIds: [] }],
     [{ phase: 'command' }, { phase: 'plain' }],
   ]) {
     await page.evaluate(patch => fixture.update(patch), hidden); await page.clock.runFor(30)
-    assert.equal(await page.locator('.dshcp-ghost').count(), 0)
+    assert.equal(await page.locator('.bscp-ghost').count(), 0)
     await page.evaluate(patch => fixture.update(patch), restored); await page.clock.runFor(30)
-    assert.equal(await page.locator('.dshcp-ghost').getAttribute('title'), original)
+    assert.equal(await page.locator('.bscp-ghost').getAttribute('title'), original)
   }
   assert.equal(await page.evaluate(() => fixture.requests.length), 1)
   await page.getByRole('textbox').focus(); await page.keyboard.press('Escape'); await page.clock.runFor(30)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 0)
+  assert.equal(await page.locator('.bscp-ghost').count(), 0)
   await page.evaluate(() => fixture.update({ sessionId: 'second' })); await page.clock.runFor(400)
   await visible()
   await page.evaluate(() => fixture.update({ sessionId: 'fixture' })); await page.clock.runFor(400)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 0, 'Esc rejection resurrected')
+  assert.equal(await page.locator('.bscp-ghost').count(), 0, 'Esc rejection resurrected')
   assert.equal(await page.evaluate(() => fixture.requests.length), 2)
   // A new native turn releases the rejection and predicts normally.
   await page.evaluate(() => fixture.update({ running: true })); await page.clock.runFor(30)
@@ -144,18 +144,18 @@ try {
   await open('case=short'); await page.clock.runFor(400); await visible()
   await page.evaluate(() => fixture.update({ sessionId: 'second' })); await page.clock.runFor(400); await visible()
   await page.evaluate(() => fixture.update({ sessionId: 'fixture' })); await page.clock.runFor(30)
-  assert.equal(await page.locator('.dshcp-ghost').getAttribute('title'), original)
+  assert.equal(await page.locator('.bscp-ghost').getAttribute('title'), original)
   assert.equal(await page.evaluate(() => fixture.requests.length), 2)
   await page.evaluate(() => fixture.reviseSettings()); await page.clock.runFor(30)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 0)
+  assert.equal(await page.locator('.bscp-ghost').count(), 0)
   await page.clock.runFor(400); await visible()
   assert.equal(await page.evaluate(() => fixture.requests.length), 3)
   await page.evaluate(() => fixture.update({ turn: 2, endSeq: 20 })); await page.clock.runFor(30)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 0)
+  assert.equal(await page.locator('.bscp-ghost').count(), 0)
   await page.clock.runFor(400); await visible()
   await page.getByRole('textbox').focus(); await page.keyboard.press('Tab'); await page.clock.runFor(30)
   await page.evaluate(() => fixture.update({ draft: '' })); await page.clock.runFor(400)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 0, 'accepted offer resurrected')
+  assert.equal(await page.locator('.bscp-ghost').count(), 0, 'accepted offer resurrected')
   assert.equal(await page.evaluate(() => fixture.requests.length), 4)
   report.lifecycle.push('front-cache-turn-settings-accept')
 
@@ -163,7 +163,7 @@ try {
   // even for an abstention, rather than competing catch-up timers.
   await open('case=short'); await page.clock.runFor(400); await visible()
   await page.evaluate(() => fixture.enable(false)); await page.clock.runFor(30)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 0)
+  assert.equal(await page.locator('.bscp-ghost').count(), 0)
   await page.evaluate(() => fixture.enable(true)); await page.clock.runFor(700); await visible()
   assert.equal(await page.evaluate(() => fixture.requests.length), 2)
   await open('mode=failure'); await page.clock.runFor(400)
@@ -179,27 +179,27 @@ try {
     const node = document.createElement('div'); node.id = 'foreign-ghost'
     node.setAttribute('data-composer-ghost', 'dsh-composer-prediction'); document.body.append(node)
   }); await page.clock.runFor(30)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 1)
+  assert.equal(await page.locator('.bscp-ghost').count(), 1)
   await page.evaluate(() => document.getElementById('foreign-ghost').setAttribute('data-composer-ghost', 'another-plugin'))
   await page.clock.runFor(30)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 0)
-  assert.equal(await page.locator('.dshcp-setting-status button').isDisabled(), true)
+  assert.equal(await page.locator('.bscp-ghost').count(), 0)
+  assert.equal(await page.locator('.bscp-setting-status button').isDisabled(), true)
   await page.getByRole('textbox').focus(); await page.keyboard.press('Tab')
   assert.equal(await page.getByRole('textbox').textContent(), '')
   await page.evaluate(() => document.getElementById('foreign-ghost').remove()); await page.clock.runFor(30)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 1)
+  assert.equal(await page.locator('.bscp-ghost').count(), 1)
   assert.equal(await page.evaluate(() => fixture.requests.length), 1)
   report.lifecycle.push('coexistence')
 
   // Failed predictions have a friendly, content-free status and an explicit
   // retry path. Unrecognised provider text never reaches the Settings display.
   await open('mode=failure'); await page.clock.runFor(400)
-  assert.match(await page.locator('.dshcp-setting-status').textContent(), /reason.auth/)
-  await page.evaluate(() => { fixture.setMode('layout'); document.querySelector('[data-test-settings] .dshcp-setting-status button').click() })
+  assert.match(await page.locator('.bscp-setting-status').textContent(), /reason.auth/)
+  await page.evaluate(() => { fixture.setMode('layout'); document.querySelector('[data-test-settings] .bscp-setting-status button').click() })
   await page.clock.runFor(30); await visible()
   assert.equal(await page.evaluate(() => fixture.requests.length), 2)
   await open('mode=untrusted-error'); await page.clock.runFor(400)
-  const diagnostic = await page.locator('.dshcp-setting-status').textContent()
+  const diagnostic = await page.locator('.bscp-setting-status').textContent()
   assert.match(diagnostic, /reason.error/)
   assert.ok(!diagnostic.includes('SECRET_PROVIDER_DETAIL'))
   report.lifecycle.push('diagnostics-retry')
@@ -228,7 +228,7 @@ try {
   await page.evaluate(() => fixture.update({ draft: 'typed' })); await page.clock.runFor(50)
   await page.evaluate(() => { fixture.update({ draft: '' }); fixture.pending[0]({ ok: true, text: 'Stale result', turnId: 1 }) })
   await page.clock.runFor(50)
-  assert.equal(await page.locator('.dshcp-ghost').count(), 0)
+  assert.equal(await page.locator('.bscp-ghost').count(), 0)
   // A 20 s Host budget leaves another 5 s for transport.
   await open('mode=timeout&hostTimeout=20000'); await page.clock.runFor(400)
   await page.clock.runFor(20000)
