@@ -20,6 +20,27 @@ On 2026-10-26 the author installed the published npm package, restarted DSH and 
 
 ## Install and remove
 
+### Install through Discover
+
+First add this project's index source to DSH. Copy this URL:
+
+```text
+https://raw.githubusercontent.com/Bosaiting/dsh-composer-predictions/main/market/index.json
+```
+
+1. Open **Plugins** and enable **Custom plugin indexes** under **Experimental plugins**. If the **Discover** tab is already visible, continue to the next step.
+2. Open **Discover**, click the **current index name** to the left of the search box, and choose **Manage index sources…**.
+3. Paste the URL above into **Index URL**, select **Add**, then close the source manager.
+4. Select **Bosaiting DSH plugins** from the index menu and find **Composer Predictions**. You can also search for its name.
+5. Select **Install**. In the confirmation, verify **`@bosaiting/dsh-composer-predictions`**, version **`0.4.3`** and registry **`https://registry.npmjs.org/`**, then confirm.
+6. Enable the plugin and fully quit/reopen DSH when requested. Its switch is under **Settings → General → Predict next message**.
+
+If the card says **Installed**, use **View installed** to open its details instead of reinstalling. Index sources persist in the current profile; add the source separately in another profile. See [Discover troubleshooting](docs/DISCOVER.md) if the source does not load or the plugin is missing.
+
+When upgrading from this project's old local copy, disable and remove it first as described in the [migration guide](docs/INSTALL.md).
+
+### Install by package name or tarball
+
 Desktop: open **Plugins → Add plugin**, enter the package below, verify its name, install and enable, then restart when requested:
 
 ```text
@@ -54,16 +75,6 @@ dsh plugin --profile web remove @bosaiting/dsh-composer-predictions
 ```
 
 Replace `web` with the intended profile. Older CLIs reject the managed Desktop profile; compatible Desktop-bundled CLIs can manage it after the app fully quits. Do not edit the desktop dependency graph by hand. See [installation](docs/INSTALL.md).
-
-## Discover
-
-Enable **Custom plugin indexes**, open **Discover**, and add this index source:
-
-```text
-https://raw.githubusercontent.com/Bosaiting/dsh-composer-predictions/main/market/index.json
-```
-
-Select **Bosaiting DSH plugins** to view this plugin and install a published npm version. The source is saved for the current profile. See [Discover setup](docs/DISCOVER.md).
 
 ## Model calls and privacy
 

@@ -35,6 +35,27 @@
 
 ## 安装
 
+### 通过 Discover 安装
+
+首次使用时，先把本项目的索引源添加到 DSH。索引地址可直接复制：
+
+```text
+https://raw.githubusercontent.com/Bosaiting/dsh-composer-predictions/main/market/index.json
+```
+
+1. 打开 DSH 的 **插件** 页面，在 **实验性插件** 中开启 **自定义插件市场**。已经看到“发现”标签页时，可直接进行下一步。
+2. 点击 **发现**，再点击搜索框左侧的**当前市场名称**，选择 **管理索引源…**。
+3. 在 **索引 URL** 输入框粘贴上面的完整地址，点击 **添加**，然后关闭索引源管理窗口。
+4. 在市场名称菜单中选择 **Bosaiting 的 DSH 插件**，找到 **下一条消息建议**，也可以搜索 `Composer Predictions`。
+5. 点击 **安装**，在确认窗口核对完整包名 **`@bosaiting/dsh-composer-predictions`**、版本 **`0.4.3`** 和注册表 **`https://registry.npmjs.org/`**，再确认安装。
+6. 安装后启用插件，并按提示完全退出、重新打开 DSH。开关位于 **设置 → 通用 → Predict next message**。
+
+如果卡片已显示 **已安装**，点击 **在已安装中查看** 即可打开插件详情，无需重复安装。索引源会保存在当前 profile，添加一次即可；切换到其他 profile 时需要重新添加。找不到插件或索引加载失败时，见 [Discover 排查说明](docs/DISCOVER.md)。
+
+从本项目旧本地副本升级时，先按[迁移说明](docs/INSTALL.md)停用并卸载旧副本，再安装正式作用域包。
+
+### 直接使用包名或安装包
+
 桌面应用打开 **Plugins → Add plugin（插件 → 添加插件）**，输入：
 
 ```text
@@ -66,16 +87,6 @@ dsh plugin --profile web add ./bosaiting-dsh-composer-predictions-0.4.3.tgz
 ```
 
 `web` 是目标环境名，请替换为实际使用的 profile。桌面 CLI 的支持取决于具体 DSH 发行版，详见 [完整安装、升级与卸载流程](docs/INSTALL.md)。
-
-## Discover 安装入口
-
-在插件页启用“自定义插件市场”，进入“发现”，添加索引源：
-
-```text
-https://raw.githubusercontent.com/Bosaiting/dsh-composer-predictions/main/market/index.json
-```
-
-选择“Bosaiting 的 DSH 插件”，即可查看本项目的版本和安装来源。添加一次后该 profile 会保留此入口。详见 [Discover 安装说明](docs/DISCOVER.md)。
 
 ## 模型、费用与隐私
 
