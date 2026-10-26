@@ -54,7 +54,7 @@
     "test:unit": "node test-host.mjs && node test-prompt.mjs && node test-generate.mjs && node test-prefix.mjs && node test-cold.mjs && node test-route.mjs && node test-route-http.mjs && node test-client.mjs && node test-settings.mjs && node test-cache.mjs && node test-regressions.mjs",
     "test:browser": "node test-browser.mjs",
     "test:syntax": "node --check host.js && node --check client.js",
-    "check": "npm run test:syntax && npm test && npm run check:release && npm run test:package && npm run test:release",
+    "check": "npm run check:market && npm run test:syntax && npm test && npm run check:release && npm run test:package && npm run test:release",
     "prepack": "node scripts/check-package.mjs",
     "test:performance": "node test-performance.mjs",
     "prepublishOnly": "npm run check",
@@ -62,7 +62,9 @@
     "test:package": "node test-package.mjs",
     "preview": "node scripts/capture-preview.mjs",
     "test:compatibility": "node test-compatibility.mjs",
-    "test:release": "node test-release.mjs"
+    "test:release": "node test-release.mjs",
+    "market:update": "node scripts/market-index.mjs",
+    "check:market": "node scripts/market-index.mjs --check"
   },
   "keywords": [
     "dsh",

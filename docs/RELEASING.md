@@ -59,7 +59,7 @@ npm view @bosaiting/dsh-composer-predictions@0.4.3 dist.integrity --registry=htt
 
 最后一个值应与 Release 中 `release-manifest.json` 的 `npmIntegrity` 一致。不要在这一步重新打包；发布的是已经通过 CI 的同一份文件。
 
-GitHub/npm 发布不会自动加入所有 Discover。可申请社区索引收录，或稍后生成格式 1 索引；版本、来源和 engines.dsh 与包一致，Git 来源固定完整 SHA。首次公开无需新建市场插件。
+本项目已提供独立的格式 1 Discover 索引，地址和使用方式见 [DISCOVER.md](DISCOVER.md)。npm 新版本公开可查后运行 `npm run market:update` 和 `node scripts/market-index.mjs --verify-registry`，再提交索引。更新器从注册表读取发布时间与兼容范围，仅收录已发布 bundle；不从本地主分支推测可安装版本。GitHub/npm 发布本身不会自动添加索引源，也不会自动进入其他社区索引。
 
 ## 参考
 

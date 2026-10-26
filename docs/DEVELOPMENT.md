@@ -19,6 +19,8 @@ GitHub CI 使用与 Playwright 版本匹配、固定摘要的[官方预装镜像
 | `npm run test:browser` | React 实际组件布局、接受、缓存和错误界面 |
 | `npm run test:compatibility` | 原生输入法标记、10ms 保护、初始化补取、冲突优先级和超时契约 |
 | `npm run test:performance` | 增量冲突观察、可见性、轮次和尺寸观察 |
+| `npm run market:update` | 从公开 npm 注册表生成 Discover 索引，需要联网 |
+| `npm run check:market` | 离线检查索引包名、图标、来源和必要字段 |
 | `npm run check:release` | 元数据、许可证、文档链接、锁文件与 npm 文件清单 |
 | `npm run test:release` | Release 安装包与提交匹配、源码归档、校验值和错误标签拒绝 |
 | `npm run test:package` | 打包后生产安装及入口解析 |

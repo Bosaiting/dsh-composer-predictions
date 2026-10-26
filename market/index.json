@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "title": {
+    "en": "Bosaiting DSH plugins",
+    "zh": "Bosaiting 的 DSH 插件"
+  },
+  "description": {
+    "en": "Community plugins maintained by Bosaiting.",
+    "zh": "Bosaiting 维护的社区插件索引。"
+  },
+  "metadata": {
+    "categories": {
+      "productivity": {
+        "title": {
+          "en": "Productivity",
+          "zh": "效率工具"
+        }
+      }
+    }
+  },
+  "plugins": [
+    {
+      "name": "@bosaiting/dsh-composer-predictions",
+      "title": {
+        "en": "Composer Predictions",
+        "zh": "下一条消息建议"
+      },
+      "description": {
+        "en": "Suggest your next message after a reply. Tab inserts a draft; Esc dismisses. Includes session caching, retry and diagnostics.",
+        "zh": "回复结束后预测下一条用户消息。Tab 插入草稿，Esc 忽略本轮；支持会话缓存、重新生成和失败原因显示。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTYiIGZpbGw9IiM1MTQ2RDkiLz4KICA8cGF0aCBkPSJNMTUgMThoMzR2MjRIMzBsLTkgN3YtN2gtNlYxOFoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHBhdGggZD0iTTIzIDI2aDE4TTIzIDMzaDltNi0zIDUgNC01IDRtNS00aC03IiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==",
+      "author": "Bosaiting",
+      "homepage": "https://github.com/Bosaiting/dsh-composer-predictions#readme",
+      "repository": {
+        "url": "https://github.com/Bosaiting/dsh-composer-predictions"
+      },
+      "metadata": {
+        "category": "productivity",
+        "keywords": [
+          "dsh",
+          "deepseek-harness",
+          "composer",
+          "prediction",
+          "ghost-text",
+          "dsh-plugin",
+          "Tab",
+          "Esc",
+          "补全",
+          "预测",
+          "提示词"
+        ]
+      },
+      "versions": [
+        {
+          "version": "0.4.3",
+          "publishTimestamp": 1793009668,
+          "source": {
+            "type": "npm",
+            "registry": "https://registry.npmjs.org"
+          },
+          "engines": {
+            "dsh": ">=0.2.1-rc.2 <0.3.0"
+          }
+        }
+      ]
+    }
+  ]
+}

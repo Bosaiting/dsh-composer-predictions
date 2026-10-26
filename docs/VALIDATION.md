@@ -70,6 +70,12 @@ npm 的无作用域名称属于其他作者。本项目发布为 `@bosaiting/dsh
 
 桌面附带 CLI 的安装／卸载已实测可用，但该版本对 `--profile desktop --dump-config` 仍报 Electron 受管 profile 限制。桌面加载状态应在应用内核对；隔离 Web profile 的配置合成结果不能替代桌面加载证据。
 
+## Discover 索引
+
+已增加[独立索引源](DISCOVER.md)，只列出公开 npm 注册表中的正式作用域包。索引通过本机 DSH 0.2.1-rc.2 自带的 `parseMarketIndex` 解析；`marketInstallTarget` 生成的参数为 `@bosaiting/dsh-composer-predictions@0.4.3`，注册表为 `https://registry.npmjs.org/`。索引的版本、发布时间及 DSH 兼容范围已与 npm 核对，内联图标小于 32 KiB。
+
+`npm run check:market` 进行离线发布检查；`node scripts/market-index.mjs --verify-registry` 进行联网一致性检查。当前索引入口及桌面使用步骤见 [DISCOVER.md](DISCOVER.md)。
+
 ## 仍未覆盖
 
 其他 DSH 版本、操作系统、主题、输入法及任意第三方插件组合尚未形成验证矩阵；原生桌面的卸载／回退尚无逐项手工记录。没有新的跨模型质量对比、延迟统计或费用测量。Git 来源安装未单独验证，npm 注册表安装已验证。常见格式扫描不等于完整安全审计。

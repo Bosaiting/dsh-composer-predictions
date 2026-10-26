@@ -8,6 +8,10 @@
 
 普通用户无需 React、Playwright 或构建工具。安装器仍需解析生产依赖，首次安装通常需要网络。插件需要会话、模型、设置和 Web 客户端服务；裸 headless 环境不会显示建议。
 
+## Discover 安装
+
+可先按 [DISCOVER.md](DISCOVER.md) 添加本项目索引源，再在“发现”中安装“下一条消息建议”。索引列出完整 npm 包名、正式版本和兼容范围；已安装时会打开插件详情。
+
 ## npm 安装与旧本地副本迁移
 
 可以在 Plugins → Add plugin 输入 `@bosaiting/dsh-composer-predictions@0.4.3`，独立环境可执行：

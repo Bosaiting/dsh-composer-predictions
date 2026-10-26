@@ -1,6 +1,6 @@
 # dsh-composer-predictions
 
-[Repository](https://github.com/Bosaiting/dsh-composer-predictions) · [Issues](https://github.com/Bosaiting/dsh-composer-predictions/issues) · [中文](README.md) · [Installation](docs/INSTALL.md) · [Privacy](docs/PRIVACY.md) · [Known issues](docs/KNOWN_ISSUES.md) · [Demo](docs/DEMO.md)
+[Repository](https://github.com/Bosaiting/dsh-composer-predictions) · [Issues](https://github.com/Bosaiting/dsh-composer-predictions/issues) · [中文](README.md) · [Installation](docs/INSTALL.md) · [Privacy](docs/PRIVACY.md) · [Known issues](docs/KNOWN_ISSUES.md) · [Demo](docs/DEMO.md) · [Discover](docs/DISCOVER.md)
 
 Predict the next user message in the empty [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) composer. **Tab** inserts an editable draft; **Esc** dismisses the offer for that turn. Acceptance never submits a message.
 
@@ -54,6 +54,16 @@ dsh plugin --profile web remove @bosaiting/dsh-composer-predictions
 ```
 
 Replace `web` with the intended profile. Older CLIs reject the managed Desktop profile; compatible Desktop-bundled CLIs can manage it after the app fully quits. Do not edit the desktop dependency graph by hand. See [installation](docs/INSTALL.md).
+
+## Discover
+
+Enable **Custom plugin indexes**, open **Discover**, and add this index source:
+
+```text
+https://raw.githubusercontent.com/Bosaiting/dsh-composer-predictions/main/market/index.json
+```
+
+Select **Bosaiting DSH plugins** to view this plugin and install a published npm version. The source is saved for the current profile. See [Discover setup](docs/DISCOVER.md).
 
 ## Model calls and privacy
 

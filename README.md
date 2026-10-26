@@ -1,6 +1,6 @@
 # dsh-composer-predictions
 
-[仓库](https://github.com/Bosaiting/dsh-composer-predictions) · [问题反馈](https://github.com/Bosaiting/dsh-composer-predictions/issues) · [English](README.en.md) · [安装与卸载](docs/INSTALL.md) · [隐私与费用](docs/PRIVACY.md) · [已知问题](docs/KNOWN_ISSUES.md) · [演示与截图](docs/DEMO.md)
+[仓库](https://github.com/Bosaiting/dsh-composer-predictions) · [问题反馈](https://github.com/Bosaiting/dsh-composer-predictions/issues) · [English](README.en.md) · [安装与卸载](docs/INSTALL.md) · [隐私与费用](docs/PRIVACY.md) · [已知问题](docs/KNOWN_ISSUES.md) · [演示与截图](docs/DEMO.md) · [Discover 安装](docs/DISCOVER.md)
 
 为 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 的空白输入框预测下一条用户消息。按 **Tab** 插入可编辑草稿，按 **Esc** 忽略本轮建议；接受建议不会自动发送。
 
@@ -66,6 +66,16 @@ dsh plugin --profile web add ./bosaiting-dsh-composer-predictions-0.4.3.tgz
 ```
 
 `web` 是目标环境名，请替换为实际使用的 profile。桌面 CLI 的支持取决于具体 DSH 发行版，详见 [完整安装、升级与卸载流程](docs/INSTALL.md)。
+
+## Discover 安装入口
+
+在插件页启用“自定义插件市场”，进入“发现”，添加索引源：
+
+```text
+https://raw.githubusercontent.com/Bosaiting/dsh-composer-predictions/main/market/index.json
+```
+
+选择“Bosaiting 的 DSH 插件”，即可查看本项目的版本和安装来源。添加一次后该 profile 会保留此入口。详见 [Discover 安装说明](docs/DISCOVER.md)。
 
 ## 模型、费用与隐私
 

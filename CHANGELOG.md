@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add a bilingual Discover catalog for the published scoped npm package, with an inline icon, registry-backed version updates and offline catalog checks.
+
 - Fix the demo fixture showing its placeholder over a nonempty draft; reject overlapping draft, placeholder and ghost layers before capturing each frame.
 - Update Chinese and English installation instructions and published-version verification records.
 - Record the author-reported desktop acceptance of the official npm 0.4.3 package.
