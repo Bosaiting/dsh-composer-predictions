@@ -77,7 +77,8 @@ function Composer() {
     /></div></div>
     <div data-input-scroll className="yhfFVG_scroll"><div className="yhfFVG_grow">
       <div data-composer-input className="yhfFVG_input" contentEditable suppressContentEditableWarning role="textbox">{s.draft}</div>
-      <div data-composer-placeholder className="yhfFVG_placeholder">发消息</div>
+      {s.draft === '' && s.attachmentIds.length === 0 &&
+        <div data-composer-placeholder className="yhfFVG_placeholder">发消息</div>}
     </div></div>
     <div data-dsh-claude-part="row" className="yhfFVG_row">模型与权限</div>
   </div>

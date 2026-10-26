@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Fix the demo fixture showing its placeholder over a nonempty draft; reject overlapping draft, placeholder and ghost layers before capturing each frame.
 - Update Chinese and English installation instructions and published-version verification records.
 - Record the author-reported desktop acceptance of the official npm 0.4.3 package.
 - Add a six-step component animation for temporary hiding/restoration, Tab insertion and Escape dismissal, plus a native installation screenshot without personal content.

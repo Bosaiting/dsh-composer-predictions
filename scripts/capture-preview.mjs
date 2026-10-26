@@ -51,6 +51,21 @@ try {
     await page.locator('.public-step').evaluate((element, label) => { element.textContent = label }, label)
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))))
     assert.equal(await page.evaluate(() => document.documentElement.scrollHeight <= innerHeight), true, 'demo overflows viewport')
+    const layers = await page.evaluate(() => {
+      const visible = selector => [...document.querySelectorAll(selector)].some(element => {
+        const style = getComputedStyle(element)
+        return element.getClientRects().length > 0 && style.display !== 'none'
+          && style.visibility !== 'hidden' && Number(style.opacity) > 0
+      })
+      return {
+        draft: document.querySelector('[data-composer-input]').textContent,
+        placeholder: visible('[data-composer-placeholder]'),
+        ghost: visible('.bscp-ghost-text'),
+      }
+    })
+    assert.ok(!layers.draft || (!layers.placeholder && !layers.ghost), 'draft overlaps placeholder or ghost: ' + label)
+    assert.ok(!layers.ghost || !layers.placeholder, 'ghost overlaps placeholder: ' + label)
+    assert.ok(layers.draft || layers.ghost || layers.placeholder, 'empty composer has no placeholder: ' + label)
     await page.screenshot({ path: path.join(frames, 'frame-' + String(index++).padStart(2, '0') + '.png') })
   }
   await capture('1 / 6 · 空白输入框显示建议 / A suggestion appears')

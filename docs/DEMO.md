@@ -17,7 +17,7 @@
 | 5 | 下一轮完成后，可以出现新建议 |
 | 6 | 按 Esc，忽略当前轮次的建议；普通界面刷新不恢复该条建议 |
 
-Tab 和 Esc 通过实际键盘事件驱动组件，隐藏／恢复和新轮次由夹具更新模拟状态。脚本检查每一步的建议／草稿状态。它不读取已有 DSH 数据，不调用模型，也不是原生系统输入法录像。
+Tab 和 Esc 通过实际键盘事件驱动组件，隐藏／恢复和新轮次由夹具更新模拟状态。脚本检查每一步的建议／草稿状态，以及正文、占位提示和灰字建议不会同时叠加。它不读取已有 DSH 数据，不调用模型，也不是原生系统输入法录像。
 
 The animation renders the actual component with synthetic state and mocked responses. Tab inserts a draft; Esc dismisses the current turn. No model requests are made. It is a browser fixture, not a recording of native IME behavior.
 
