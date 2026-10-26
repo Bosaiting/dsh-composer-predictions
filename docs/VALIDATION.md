@@ -2,6 +2,8 @@
 
 日期：2026-10-26。状态：本地修复候选包，未外部发布。
 
+公开源码位于 [Bosaiting/dsh-composer-predictions](https://github.com/Bosaiting/dsh-composer-predictions)。以下表格记录本地修复验证；远程 Node 22／24 检查的实时状态与日志见 [GitHub Actions](https://github.com/Bosaiting/dsh-composer-predictions/actions/workflows/ci.yml)。源码公开不等于已发布 GitHub Release 或 npm 包。
+
 ## 修复前后对照
 
 使用原 0.4.2 客户端和修复后的实际组件重放相同的模拟场景：
@@ -42,6 +44,6 @@
 
 没有重启当前桌面应用、执行真实系统输入法或任意第三方插件组合的原生验收。模拟事件检查能验证输入法标记、同步保护与定时逻辑，不能证明所有系统输入法都已实测。
 
-DSH 配置合成通过不等于完整应用的路由、设置和键盘界面已完成原生验收。没有新的真实模型质量／费用评估，也没有远程 GitHub CI、公共 Git 安装或 npm 注册表安装结果。常见格式扫描不等于完整安全审计。
+DSH 配置合成通过不等于完整应用的路由、设置和键盘界面已完成原生验收。本地记录没有新的真实模型质量／费用评估、公共 Git 安装或 npm 注册表安装结果。远程 CI 结果单独以 Actions 对应提交为准；常见格式扫描不等于完整安全审计。
 
 当前互操作约定和功能范围见 [KNOWN_ISSUES.md](KNOWN_ISSUES.md)，安装见 [INSTALL.md](INSTALL.md)。
