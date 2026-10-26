@@ -11,7 +11,7 @@ https://raw.githubusercontent.com/Bosaiting/dsh-composer-predictions/main/market
 ## 桌面操作
 
 1. 打开 **插件**，在实验性插件中启用 **自定义插件市场 / Custom plugin indexes**。
-2. 进入 **发现 / Discover**，在索引源菜单中选择添加索引源，粘贴上面的完整地址。
+2. 进入 **发现 / Discover**，点击当前市场名称，选择 **管理索引源…**。在 **索引 URL** 输入框粘贴上面的完整地址，点击 **添加**。
 3. 选择 **Bosaiting 的 DSH 插件**，搜索“下一条消息建议”或 `Composer Predictions`。
 4. 点击插件卡片或安装入口，核对完整包名、版本 `0.4.3` 和 npm 注册表 `https://registry.npmjs.org/`。
 5. 确认安装、启用，并按提示重启。已安装时，卡片会显示已安装，打开后可查看现有插件。
@@ -22,7 +22,7 @@ https://raw.githubusercontent.com/Bosaiting/dsh-composer-predictions/main/market
 
 ## English
 
-Enable **Custom plugin indexes** under **Plugins → Experimental plugins**, open **Discover**, and add the HTTPS index URL above. Select **Bosaiting DSH plugins**, then find **Composer Predictions**. Before installing, verify the full scoped package name, version and npm registry. Install, enable and restart when requested. An already installed version opens its installed plugin page.
+Enable **Custom plugin indexes** under **Plugins → Experimental plugins**, open **Discover**, and click the current index name. Choose **Manage index sources…**, paste the HTTPS index URL above and select **Add**. Select **Bosaiting DSH plugins**, then find **Composer Predictions**. Before installing, verify the full scoped package name, version and npm registry. Install, enable and restart when requested. An already installed version opens its installed plugin page.
 
 This is a separate community index maintained by Bosaiting. DSH does not ship an index source; publishing this catalog does not add it automatically to other users' profiles or unrelated community catalogs.
 
